@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col-xs-12 main">  
+    <% @users.each do |user| %>
+      <h1>Welcome <%= user.name %></h1>
+    <% end %>
+    <p>
+    <table>
+      <tr>
+        <td><strong>SONG</strong></td>
+        <td><strong>ARTIST</strong></td>
+        <td><strong>ALBUM</strong></td>
+      </tr>
+        <% @songs.each do |song| %>
+          <tr>
+            <td><a href="#"><%= song.name %></a></td>
+            <td><%= song.album.artist.name %></td>
+            <td><%= song.album.name %></td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
