@@ -79,5 +79,4 @@ ActiveRecord::Schema.define(version: 20150602151155) do
   add_foreign_key "songs", "albums"
   add_foreign_key "user_songs", "songs"
   add_foreign_key "user_songs", "users"
-
 end
