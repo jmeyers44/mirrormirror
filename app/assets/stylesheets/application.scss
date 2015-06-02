@@ -19,7 +19,11 @@
 @import "bootstrap";
 
 .main {
-  text-align: center;
+  text-align: left;
+}
+
+td {
+  padding: 10px 0px 10px 0px;
 }
 
 span {
@@ -27,11 +31,19 @@ span {
 }
 
 .container {
-  padding: 150px 0px 100px 0px;
+  padding: 50px 0px 100px 0px;
 }
 
 /* FONTS */
 
-h1, p {
-  padding: 20px;
+h1, p, h3 {
+  padding: 20px 0px 20px 0;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+td {
+  border-bottom: 1px solid #cccccc
 }
