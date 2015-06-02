@@ -7,4 +7,3 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user1 = User.create(name: "Steven")
 
-ParseLibrary.new().add_library_to_db

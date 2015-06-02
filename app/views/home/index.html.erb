@@ -9,7 +9,7 @@
       <button type="button">Find Library</button> <button type="button">Upload</button>
     
   </div>
-    <%= form_for User.new,multipart: true, :url => users_upload_path  do |f| %>
+    <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
         <%= f.file_field :name %>
         <%= f.submit %>
     <% end %>

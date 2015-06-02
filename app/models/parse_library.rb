@@ -1,6 +1,7 @@
 class ParseLibrary < ActiveRecord::Base
 
-  def add_library_to_db(file)
+
+  def add_library_to_db(file, current_user)
     parse(file)
     @library_array.each do |track_hash|
       artist = add_artist(track_hash["Artist"])
@@ -10,7 +11,7 @@ class ParseLibrary < ActiveRecord::Base
       album.songs << song
       tag = add_tag(track_hash["Genre"])
       song.tags << tag
-      User.first.songs << song
+      current_user.songs << song
     end
 
   end
