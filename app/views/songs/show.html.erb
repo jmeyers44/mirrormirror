@@ -1,11 +1,12 @@
 <div class="container">
   <div class="col-xs-2"></div>
   <div class="col-xs-8 main">
-    
-  <%= @songs.each do |song| %>
-    <%= song.name %>
-  <% end %>
-
+  
+  <ul>
+    <%= @songs.each do |song| %>
+      <li class="<%= cycle('even', 'odd') %>"><%= song.name %></li>
+    <% end %>
+  </ul>
 
   </div>
   <div class="col-xs-2"></div>

@@ -19,7 +19,11 @@
 @import "bootstrap";
 
 .main {
-  text-align: center;
+  text-align: left;
+}
+
+td {
+  padding: 8px;
 }
 
 span {
@@ -27,7 +31,7 @@ span {
 }
 
 .container {
-  padding: 150px 0px 100px 0px;
+  padding: 100px 0px 100px 0px;
 }
 
 /* FONTS */

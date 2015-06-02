@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="col-xs-12 main">
+  
+  <table>
+    <tr>
+      <td><strong>Song</strong></td>
+      <td><strong>Artist</strong></td>
+      <td><strong>Album</strong></td>
+    </tr>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.name %></td>
+          <td><%= song.album.artist.name %></td>
+          <td><%= song.album.name %></td>
+        </tr>
+      <% end %>
+  </table>
+
+  <!--  song   artist   album -->
+
+  </div>
+</div>
