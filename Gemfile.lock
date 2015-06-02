@@ -162,6 +162,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pry
   pry-rails
   prybaby
   rails (= 4.2.1)
