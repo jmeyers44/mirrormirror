@@ -1,11 +1,15 @@
-<div class="container-fluid">
+<div class="container">
   <div class="col-xs-12 main">
   
+  <% @users.each do |user| %>
+    <h1>Welcome <%= user.name %></h1>
+  <% end %>
+  <p>
   <table>
     <tr>
-      <td><strong>Song</strong></td>
-      <td><strong>Artist</strong></td>
-      <td><strong>Album</strong></td>
+      <td><strong>SONG</strong></td>
+      <td><strong>ARTIST</strong></td>
+      <td><strong>ALBUM</strong></td>
     </tr>
       <% @songs.each do |song| %>
         <tr>
