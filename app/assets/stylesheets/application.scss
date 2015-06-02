@@ -17,3 +17,21 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.main {
+  text-align: center;
+}
+
+span {
+  font-style: italic;
+}
+
+.container {
+  padding: 150px 0px 100px 0px;
+}
+
+/* FONTS */
+
+h1, p {
+  padding: 20px;
+}
