@@ -1,7 +1,7 @@
 class ParseLibrary < ActiveRecord::Base
 
-  def add_library_to_db
-    parse
+  def add_library_to_db(file)
+    parse(file)
     @library_array.each do |track_hash|
       artist = add_artist(track_hash["Artist"])
       album = add_album(track_hash["Album"], artist)
@@ -15,8 +15,8 @@ class ParseLibrary < ActiveRecord::Base
 
   end
   
-  def parse
-    doc = Nokogiri::XML(File.open("dummy_library.xml"))
+  def parse(file)
+    doc = Nokogiri::XML(File.open(file))
     @library_array = []
     doc.xpath('//dict/dict/dict').each do |track|
       obj = {}
