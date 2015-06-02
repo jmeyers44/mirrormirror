@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :albums
   resources :songs
   resources :artists
+
+  
+  post '/users/upload', :controller => 'users', :action => 'uploads'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
