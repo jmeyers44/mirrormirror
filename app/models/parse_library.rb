@@ -12,11 +12,9 @@ class ParseLibrary < ActiveRecord::Base
       tag = add_tag(track_hash["Genre"])
       song.tags << tag
         if track_hash["Play Count"]
-          song.play_count = track_hash["Play Count"]
-          song.save
+          song.update(play_count: track_hash["Play Count"]) 
         else
-          song.play_count = 0
-          song.save
+          song.update(play_count: 0)
         end
       current_user.songs << song
     end
