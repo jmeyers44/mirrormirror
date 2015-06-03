@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @songs = Song.all
-    @users = User.all
+    @user = User.find(params[:id])
   end
 
 end

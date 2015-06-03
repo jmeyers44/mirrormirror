@@ -5,14 +5,13 @@
       <h1>Upload your iTunes Library</h1>
     
       <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
-   
-      <button type="button">Find Library</button> <button type="button">Upload</button>
+
+        <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
+        <%= f.file_field :name %> <%= f.submit %>
+    <% end %>
+
     
   </div>
-    <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
-        <%= f.file_field :name %>
-        <%= f.submit %>
-    <% end %>
 
   <div class="col-xs-2"></div>
 </div>

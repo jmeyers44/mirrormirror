@@ -1,22 +1,29 @@
 <div class="container">
-  <div class="col-xs-12 main">  
-    <% @users.each do |user| %>
-      <h1>Welcome <%= user.name %></h1>
-    <% end %>
+  <div class="col-xs-1 main"></div>  
+
+  <div class="col-xs-10 main">  
+    <h1>Welcome <%= @user.name %></h1>
     <p>
     <table>
       <tr>
+        <td>&nbsp;</td> 
         <td><strong>SONG</strong></td>
         <td><strong>ARTIST</strong></td>
         <td><strong>ALBUM</strong></td>
+        <td><strong>PLAYS</strong></td>
       </tr>
-        <% @songs.each do |song| %>
-          <tr>
-            <td><a href="#"><%= song.name %></a></td>
-            <td><%= song.album.artist.name %></td>
-            <td><%= song.album.name %></td>
-          </tr>
-        <% end %>
+      <% @songs.each do |song| %>
+        <tr class="song-row">
+          <td><a href="#"><%= image_tag('icons/play.png', class: 'play') %></a></td>
+          <td><a href="#"><%= truncate(song.name, length: 40) %></a></td>
+          <td><%= truncate(song.album.artist.name, length: 40) %></td>
+          <td><%= truncate(song.album.name, length: 25) %></td>
+          <!-- PLAY COUNT PLACE HOLDER FOR WHEN MODEL IS ADJUSTED -->
+          <td><center>99</center></td>
+        </tr>
+      <% end %>
     </table>
   </div>
+  <div class="col-xs-1 main"></div>  
+
 </div>

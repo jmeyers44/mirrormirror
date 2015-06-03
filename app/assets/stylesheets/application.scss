@@ -22,9 +22,7 @@
   text-align: left;
 }
 
-td {
-  padding: 10px 0px 10px 0px;
-}
+
 
 span {
   font-style: italic;
@@ -44,6 +42,13 @@ h1, h3 {
   text-align: center;
 }
 
+/* TABLE */
+
 td {
+  padding: 15px 10px 15px 10px;
   border-bottom: 1px solid #cccccc
+}
+
+.play {
+  padding: 0px 10px 0px 0px; 
 }

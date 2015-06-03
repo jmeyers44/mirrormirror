@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :songs
   resources :artists
 
+  # resources :home, only: [:index] do
+  #   get "/load" => ""
+  # end
   
   post '/users/upload', :controller => 'users', :action => 'uploads'
   # The priority is based upon order of creation: first created -> highest priority.
