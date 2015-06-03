@@ -5,14 +5,20 @@ class UsersController < ApplicationController
     file = "#{Rails.root}/tmp/#{current_user}"
     open(file, 'wb') do |file|
       file.write open(user_file).read 
-    end
-    redirect_to songs_path
-    ParseLibrary.new().add_library_to_db(file, current_user)
+    end 
+    @file = file
+    @songs = Song.all
+    @users = User.all
+    render action: :show 
   end
 
   def show
     @songs = Song.all
     @users = User.all
+  end
+
+  def parse
+    ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
   end
 
 end
