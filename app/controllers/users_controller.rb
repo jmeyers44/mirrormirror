@@ -27,4 +27,20 @@ class UsersController < ApplicationController
   def loading
   end
 
+  def play
+    youtube_base_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+    api_key = ENV['YOUTUBE_API']
+    song = Song.find(params[:id])
+    query = song.name.gsub!(/[^0-9A-Za-z ]/,'').split.join("+")
+
+    uri = URI(youtube_base_url+query+"&key="+api_key)
+    binding.pry
+    result = Net::HTTP.get(uri)
+    # response = HTTParty.get(youtube_base_url+query+"&key="+api_key)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end

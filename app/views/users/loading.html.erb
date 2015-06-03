@@ -5,9 +5,10 @@
   function parser (){
     var file_path = $('#temp_file').text();
     var user_id = $('#user_id').text();
-  $.post("/users/parse",{file_path: file_path}).fail(function(){
-    window.location = "/users/"+user_id
-  })
+    $.post("/users/parse",{file_path: file_path}).always(function(){
+        window.location = "/users/"+user_id
+      }
+    )
   };
   parser();
 </script> 
