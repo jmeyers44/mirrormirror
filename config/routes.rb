@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   resources :albums
   resources :songs
   resources :artists
-
-  # resources :home, only: [:index] do
-  #   get "/load" => ""
-  # end
   
   post '/users/upload', :controller => 'users', :action => 'uploads'
   
