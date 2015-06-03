@@ -29,8 +29,6 @@ gem 'devise'
 
 gem "rack-timeout"
 
-gem 'unicorn'
-
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password

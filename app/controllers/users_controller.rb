@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @file = file
     @songs = Song.all
     @users = User.all
-    render action: :show 
+    render action: :loading
   end
 
   def show
@@ -19,6 +19,12 @@ class UsersController < ApplicationController
 
   def parse
     ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
+    @songs = Song.all
+    @users = User.all
+    redirect_to user_path(current_user.id)
+  end
+
+  def loading
   end
 
 end
