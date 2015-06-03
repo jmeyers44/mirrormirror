@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     binding.pry
     result = Net::HTTP.get(uri)
     # response = HTTParty.get(youtube_base_url+query+"&key="+api_key)
-
+    @youtube_id = result["items"][0]["id"]["videoId"]
     respond_to do |format|
       format.js
     end
