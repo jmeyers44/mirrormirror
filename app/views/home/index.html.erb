@@ -6,7 +6,7 @@
     
       <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
    
-      <button type="button">Find Library</button> <button type="button">Upload</button>
+      <button type="button" class="test">Find Library</button> <button type="button">Upload</button>
     
   </div>
     <%= form_for User.new,multipart: true, :url => users_upload_path  do |f| %>
