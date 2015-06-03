@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     open(file, 'wb') do |file|
       file.write open(user_file).read 
     end
-    ParseLibrary.new().add_library_to_db(file, current_user)
     redirect_to songs_path
+    ParseLibrary.new().add_library_to_db(file, current_user)
   end
 
   def show
