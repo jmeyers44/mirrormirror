@@ -16,7 +16,7 @@
       <% @songs.each do |song| %>
         <tr class="song-row">
           <td><a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play') %></a></td>
-          <td><a href="#"><%= song.id %></a></td>
+          <td><a href="#"><%= truncate(song.name, length: 40) %></a></td>
           <td><%= truncate(song.album.artist.name, length: 40) %></td>
           <td><%= truncate(song.album.name, length: 25) %></td>
           <!-- PLAY COUNT PLACE HOLDER FOR WHEN MODEL IS ADJUSTED -->
