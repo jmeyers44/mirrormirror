@@ -11,9 +11,15 @@ class ParseLibrary < ActiveRecord::Base
       album.songs << song
       tag = add_tag(track_hash["Genre"])
       song.tags << tag
+        if track_hash["Play Count"]
+          song.play_count = track_hash["Play Count"]
+          song.save
+        else
+          song.play_count = 0
+          song.save
+        end
       current_user.songs << song
     end
-
   end
   
   def parse(file)
@@ -68,6 +74,7 @@ class ParseLibrary < ActiveRecord::Base
       Tag.find_or_create_by(name: "unknown")
     end
   end
+
 
 
 
