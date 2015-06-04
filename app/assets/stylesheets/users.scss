@@ -7,14 +7,10 @@
   position: fixed;
   top: 0px;
   background-color: #fff;
-  z-index: 4;
   padding: 10px;
   /*height: 500px;*/
 }
 
-.hide {
-  display: none;
-}
 
 
 /*.page {
@@ -25,4 +21,29 @@
   position: absolute;
   left: 0px;
   top: 0px;
+}
+
+.loading {
+  background-color: #333333;
+}
+
+.load-text {
+  color: #ffffff;
+}
+
+.responsive-object {
+  position: relative;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.responsive-object iframe,
+  .responsive-object object,
+  .responsive-object embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

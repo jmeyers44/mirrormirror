@@ -1,8 +1,8 @@
-$(document).ready(function(){
-    $('.play').click(function(){
-      $('#player').removeClass('hide').addClass('show');
+// $(document).ready(function(){
+//     $('.play').click(function(){
+//       $('#player').removeClass('hide').addClass('show');
       // $('.card').removeClass('card video');
-    });
+    // });
     // $('#player').data('size','big');
 
     //   $(window).scroll(function(){
@@ -31,5 +31,5 @@ $(document).ready(function(){
       //   }
       // });
 
-});
+// });
 
