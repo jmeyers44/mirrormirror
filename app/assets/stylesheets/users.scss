@@ -5,5 +5,24 @@
 
 #player {
   position: fixed;
-  top: 0;
+  top: 0px;
+  background-color: #fff;
+  z-index: 4;
+  padding: 10px;
+  /*height: 500px;*/
+}
+
+.hide {
+  display: none;
+}
+
+
+/*.page {
+  border: 10px solid red;
+}*/
+
+.video-panel {
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
