@@ -59,7 +59,7 @@
             <%= truncate(song.album.name, length: 25) %>
           </td>
           <td>
-            <center><%= song.play_count %></center>
+            <center><%= song.user_songs.first.play_count %></center>
           </td>
         </tr>
       <% end %>
