@@ -22,4 +22,23 @@ $(document).ready(function(){
     $('#player').html("<a class='embedly-card' href="+links_obj[new_video_index][newKey]+"></a>")
     $.post(window.location.pathname+'/links/'+oldKey,{vote: "downvote"})
   })
+
+  $(function() {
+    var availableTags = 
+    $('tbody > tr > td a').map(function(){return $(this).text();}).get();
+    // $( "#tags" ).autocomplete({
+    //   source: availableTags
+    // });
+  });
+  
+  $( "#tags" ).keyup(function(){ $('.song-row:not(:contains('+$('#tags').val()+'))').hide(); });
+  $( "#tags" ).keyup(function(){ $('.song-row:contains('+$('#tags').val()+')').show(); });
+
+  setInterval(function(){if($('#tags').val()=== ""){
+    $('.song-row').show();
+  }
+},40);
+
+
+  
 })
