@@ -49,19 +49,43 @@ class UsersController < ApplicationController
       json_result["items"].each do |youtube_vid|
         formatted_url = youtube_video_base_url+youtube_vid["id"]["videoId"]
         url_array << formatted_url
-        @url = Link.create(url: formatted_url, accuracy_rating: 0)
-        song.links << @url
 
+        @link = Link.create(url: formatted_url, accuracy_rating: 0)
+        song.links << @link
       end
       
-      # @url = url_array[0]
-
     else
-      @url = song.links.order(accuracy_rating: :desc).limit(1).first
+      @link = song.links.order(accuracy_rating: :desc).limit(1).first
+
     end
+
+    links_array = Link.where(song_id: song.id).order(accuracy_rating: :desc).limit(5)
+    
+    @links_array_hash = links_array.collect do |link|
+      {link.id.to_s => link.url}
+    end
+
     respond_to do |format|
       format.js
     end
+  end
+
+  def accuracy_rating
+    current_link = Link.find(params[:id])
+
+    if params[:vote] == "upvote"
+      current_link.increment_rating
+    elsif params[:vote] == "downvote"
+      current_link.decrement_rating
+    end
+
+    # links_array = Link.where(song_id: current_link.song.id)
+
+    # @link = links_array.sample
+
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
 end
