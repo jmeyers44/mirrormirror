@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'users/:user_id/play/:id' => 'users#play'
+  post 'users/:user_id/links/:id' => 'users#accuracy_rating'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

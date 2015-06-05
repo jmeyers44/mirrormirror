@@ -25,9 +25,9 @@
 
   <!-- ////////// END NAV BAR ////////// -->
 
-  <div class="feed-me" style="z-index:99;width:100%;height:400px;background-color:black;position:fixed;">
-  <div class="responsive-object" style="height:375px;position:absolute;width:400px;left:43%;margin-left:-100px">
-  </div>
+  <div id="player" class="feed-me" style="z-index:99;width:100%;height:400px;background-color:black;position:fixed;">
+    <div class="responsive-object" style="height:375px;position:absolute;width:400px;left:43%;margin-left:-100px">
+    </div>
   </div>
 <!--   <div style="height:400px; background-color: blue;position:fixed;top:0; width:100%; left:0;"></div>
  -->
@@ -35,6 +35,9 @@
   <div class="col-xs-1 main"></div>  
   <div class="col-xs-10 main">  
   
+    <div id="links_array" style="visibility:hidden;"></div>
+    <button id="upvote">Upvote</button>
+    <button id="downvote">Downvote</button>
     <p>
     <table>
       <tr>
