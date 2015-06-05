@@ -11,12 +11,13 @@ class ParseLibrary < ActiveRecord::Base
       album.songs << song
       tag = add_tag(track_hash["Genre"])
       song.tags << tag
-        if track_hash["Play Count"]
-          song.update(play_count: track_hash["Play Count"]) 
-        else
-          song.update(play_count: 0)
-        end
       current_user.songs << song
+      usersong = UserSong.where(song_id: song.id, user_id: current_user.id).first
+        if track_hash["Play Count"]
+          usersong.update(play_count: track_hash["Play Count"]) 
+        else
+          usersong.update(play_count: 0)
+        end
     end
   end
   
