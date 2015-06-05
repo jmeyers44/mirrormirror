@@ -1,6 +1,7 @@
 function addplayer(){
   // debugger;
-  $('#player').html("<a class='embedly-card' href='<%= j @url %>'></a>")
+  $('#player').attr("class","<%= j @link.id.to_s %>")
+  $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
 }
 
 addplayer();
