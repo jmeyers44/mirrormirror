@@ -49,12 +49,14 @@ class UsersController < ApplicationController
       url_array = []
       
       json_result["items"].each do |youtube_vid|
-        formatted_url = youtube_video_base_url+youtube_vid["id"]["videoId"]
-        url_array << formatted_url
+        if youtube_vid["id"]["videoId"]
+          formatted_url = youtube_video_base_url+youtube_vid["id"]["videoId"]
+          url_array << formatted_url
 
-        @link = Link.create(url: formatted_url, accuracy_rating: 0)
-        song.links << @link
-      end
+          @link = Link.create(url: formatted_url, accuracy_rating: 0)
+          song.links << @link
+          end
+        end
       
     else
       @link = song.links.order(accuracy_rating: :desc).limit(1).first
