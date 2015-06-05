@@ -6,7 +6,7 @@
 #player {
   position: fixed;
   top: 0px;
-  background-color: #fff;
+  background-color: #000;
   padding: 10px;
   /*height: 500px;*/
 }
@@ -23,10 +23,42 @@
   top: 0px;
 }
 
-/*.loading {
-  background: url(<%= randomized_background_image %>) no-repeat center center fixed; 
+.loading {
+  /*background: url(/random_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: #232323;
 }
-*/
+
+.full-bar {
+  width: 15%;
+  height: 2px;
+  background-color: #fff;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.progress-load {
+height: 2px;
+background-color: #fff;
+-webkit-transition: width 2s; /* Safari */
+transition: width 2s;
+}
+
+.feed-me {
+  z-index: 99;
+  width: 100%;
+  height: 400px;
+  background-color: #000;
+  position: fixed;
+  left: 0;
+  /*float: left;*/
+  /*border: 2px solid yellow;*/
+}
+
+
 .load-text {
   color: #ffffff;
 }

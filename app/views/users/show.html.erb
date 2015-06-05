@@ -25,7 +25,7 @@
 
   <!-- ////////// END NAV BAR ////////// -->
 
-  <div id="player" class="feed-me" style="z-index:99;width:100%;height:400px;background-color:black;position:fixed;">
+  <div id="player" class="feed-me">
     <div class="responsive-object" style="height:375px;position:absolute;width:400px;left:43%;margin-left:-100px">
     </div>
   </div>
@@ -50,7 +50,7 @@
       <% @songs.each do |song| %>
         <tr class="song-row">
           <td>
-            <a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play') %></a>
+            <a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
           </td>
           <td>
             <a href="#"><%= truncate(song.name, length: 40) %></a>
