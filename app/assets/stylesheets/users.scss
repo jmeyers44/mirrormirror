@@ -24,7 +24,7 @@
 }
 
 .loading {
-  background-color: #333333;
+  background: url(<%= randomized_background_image %>) no-repeat center center fixed; 
 }
 
 .load-text {
