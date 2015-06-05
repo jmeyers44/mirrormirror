@@ -30,9 +30,15 @@ $(document).ready(function(){
     //   source: availableTags
     // });
   });
+
+  jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
   
-  $( "#tags" ).keyup(function(){ $('.song-row:not(:contains('+$('#tags').val()+'))').hide(); });
-  $( "#tags" ).keyup(function(){ $('.song-row:contains('+$('#tags').val()+')').show(); });
+  $( "#tags" ).keyup(function(){ $('.song-row:not(:Contains('+$('#tags').val()+'))').hide(); });
+  $( "#tags" ).keyup(function(){ $('.song-row:Contains('+$('#tags').val()+')').show(); });
 
   setInterval(function(){if($('#tags').val()=== ""){
     $('.song-row').show();
