@@ -5,7 +5,7 @@ function addplayer(){
 
   $('#links_array').html("<%= j @links_array_hash.to_json %>")
   $('#links_array').attr("class","0")
-  <!-- $('#player').attr("class","<%#= j @link.id.to_s %>") -->
+   // $('#player').attr("class","<%#= j @link.id.to_s %>") 
   $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
 
 }

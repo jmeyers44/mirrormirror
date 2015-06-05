@@ -1,10 +1,17 @@
 <body class="loading">
+  <div class="container-load">
+
   <p>&nbsp;</p>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
+  <div class="full-bar">
+    <div class="progress-load"></div>
+  </div>
+
   <h1 class="load-text">Your playlist is loading</h1>
   <div id="temp_file" style="visibility:hidden;"><%=@file%></div>
   <div id="user_id" style="visibility:hidden;"><%= current_user.id %></div>
+</div>
   <script>
     function parser (){
       var file_path = $('#temp_file').text();

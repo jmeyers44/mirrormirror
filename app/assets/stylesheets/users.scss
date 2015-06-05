@@ -3,16 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#player {
+/*#player {
   position: fixed;
   top: 0px;
   background-color: #fff;
   padding: 10px;
-  /*height: 500px;*/
-}
+  height: 500px;
+}*/
 
 .songs-list {
   margin-top:450px;
+}
+
+.embedly-card {
+  z-index: 200;
 }
 
 /*.page {
@@ -25,15 +29,41 @@
   top: 0px;
 }
 
-/*.loading {
-  background: url(<%= randomized_background_image %>) no-repeat center center fixed; 
-}*/
+
+.full-bar {
+  width: 20%;
+  height: 2px;
+  background-color: yellow;
+  padding: 0;
+  margin: 0;
+}
+
+.progress-load {
+height: 2px;
+width: 21%;
+background-color: red;
+}
+
+.container-load {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.loading {
+  /*background: url(/random_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: #232323;
+}
 
 .feed-me {
   z-index: 99;
   width: 100%;
   height: 500px;
-  background-color: black;
+  background-color: #000;
   position: fixed;
   left: 0;
   padding-top: 50px;
