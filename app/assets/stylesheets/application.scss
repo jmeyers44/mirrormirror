@@ -52,3 +52,16 @@ td {
 .play {
   padding: 0px 10px 0px 0px; 
 }
+
+
+.navbar {
+  position: fixed;
+  z-index: 100;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 0px;
+  background-color: #fff;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+}

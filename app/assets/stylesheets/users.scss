@@ -27,17 +27,31 @@
   background: url(<%= randomized_background_image %>) no-repeat center center fixed; 
 }*/
 
+.feed-me {
+  z-index: 99;
+  width: 100%;
+  height: 400px;
+  background-color: black;
+  position: fixed;
+  top: 100;
+  left: 0;
+}
 
 .load-text {
   color: #ffffff;
 }
 
 .responsive-object {
-  position: relative;
+  /*position: relative;*/
   padding-bottom: 0;
-  height: 0;
+  /*height: 0;*/
   margin: 0px 0;
   overflow: hidden;
+  height:375px;
+  position:absolute;
+  width:400px;
+  left:43%;
+  margin-left:-100px;
 }
 .responsive-object iframe,
   .responsive-object object,
