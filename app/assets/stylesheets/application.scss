@@ -45,7 +45,7 @@ h1, h3 {
 /* TABLE */
 
 td {
-  padding: 15px 10px 15px 10px;
+  padding: 7px 10px 7px 10px;
   border-bottom: 1px solid #cccccc
 }
 
@@ -64,4 +64,28 @@ td {
   left: 0;
   width: 100%;
   border-radius: 0;
+  /*background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0, #0FAFC4),
+  color-stop(1, #2AE1EB)
+);
+background-image: -o-linear-gradient(bottom, #0FAFC4 0%, #2AE1EB 100%);
+background-image: -moz-linear-gradient(bottom, #0FAFC4 0%, #2AE1EB 100%);
+background-image: -webkit-linear-gradient(bottom, #0FAFC4 0%, #2AE1EB 100%);
+background-image: -ms-linear-gradient(bottom, #0FAFC4 0%, #2AE1EB 100%);
+background-image: linear-gradient(to bottom, #0FAFC4 0%, #2AE1EB 100%);*/
+  background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0, #000000),
+  color-stop(1, #262626)
+);
+background-image: -o-linear-gradient(bottom, #000000 0%, #262626 100%);
+background-image: -moz-linear-gradient(bottom, #000000 0%, #262626 100%);
+background-image: -webkit-linear-gradient(bottom, #000000 0%, #262626 100%);
+background-image: -ms-linear-gradient(bottom, #000000 0%, #262626 100%);
+background-image: linear-gradient(to bottom, #000000 0%, #262626 100%);
 }

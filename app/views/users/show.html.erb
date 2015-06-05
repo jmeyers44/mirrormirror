@@ -34,7 +34,7 @@
     </div>
 
 
-  <div style="margin-top:400px;">
+  <div class="songs-list">
   <div class="col-xs-1 main"></div>  
   <div class="col-xs-10 main">  
   
@@ -50,7 +50,7 @@
       <% @songs.each do |song| %>
         <tr class="song-row">
           <td>
-            <a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play') %></a>
+            <a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 25) %></a>
           </td>
           <td>
             <a href="#"><%= truncate(song.name, length: 40) %></a>
