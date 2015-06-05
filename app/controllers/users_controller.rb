@@ -30,13 +30,15 @@ class UsersController < ApplicationController
   def play
 
     song = Song.find(params[:id])
+    artist = song.album.artist
     
     if song.links.empty?
 
       youtube_base_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
       api_key = ENV['YOUTUBE_API']
-      query = song.name.gsub(/[^0-9A-Za-z ]/,'').split.join("+")
-
+      query_artist = artist.name.gsub(/[^0-9A-Za-z ]/,'').split.join("+")
+      query_song = song.name.gsub(/[^0-9A-Za-z ]/,'').split.join("+")
+      query = query_song + "+" + query_artist
       uri = URI(youtube_base_url+query+"&key="+api_key)
       result = Net::HTTP.get(uri)
 
