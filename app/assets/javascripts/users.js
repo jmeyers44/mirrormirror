@@ -1,14 +1,26 @@
 $(document).ready(function(){
   $('#upvote').on('click',function(event){
     event.preventDefault();
-    var link_id = $('#player').attr("class")
-    // var song_id = $('')
-    $.post(window.location.pathname+'/links/'+link_id,{vote: "upvote"})
+    var video_index = parseInt($('#links_array').attr("class"));
+    links_obj = $.parseJSON($('#links_array').html())
+
+    var key = Object.keys(links_obj[video_index])
+    $.post(window.location.pathname+'/links/'+key,{vote: "upvote"})
   })
 
   $('#downvote').on('click',function(event){
     event.preventDefault();
-    var link_id = $('#player').attr("class")
-    $.post(window.location.pathname+'/links/'+link_id,{vote: "downvote"})
+    var video_index = parseInt($('#links_array').attr("class"));
+    video_index+=1;
+    $('#links_array').attr("class",video_index);
+
+    links_obj = $.parseJSON($('#links_array').html())
+
+    var key = Object.keys(links_obj[video_index])
+    
+
+    $('#player').html("<a class='embedly-card' href="+links_obj[video_index][key]+"></a>")
+
+    $.post(window.location.pathname+'/links/'+key,{vote: "downvote"})
   })
 })

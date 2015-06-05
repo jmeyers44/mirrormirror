@@ -79,13 +79,13 @@ class UsersController < ApplicationController
       current_link.decrement_rating
     end
 
-    links_array = Link.where(song_id: current_link.song.id)
+    # links_array = Link.where(song_id: current_link.song.id)
 
-    @link = links_array.sample
+    # @link = links_array.sample
 
-    respond_to do |format|
-      format.js
-    end
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
 end
