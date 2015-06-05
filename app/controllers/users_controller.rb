@@ -53,11 +53,17 @@ class UsersController < ApplicationController
         song.links << @link
       end
       
-      # @link = url_array[0]
-
     else
       @link = song.links.order(accuracy_rating: :desc).limit(1).first
+
     end
+
+    links_array = Link.where(song_id: song.id).order(accuracy_rating: :desc).limit(5)
+    
+    @links_array_hash = links_array.collect do |link|
+      {link.id.to_s => link.url}
+    end
+
     respond_to do |format|
       format.js
     end
@@ -65,6 +71,7 @@ class UsersController < ApplicationController
 
   def accuracy_rating
     current_link = Link.find(params[:id])
+
     if params[:vote] == "upvote"
       current_link.increment_rating
     elsif params[:vote] == "downvote"
