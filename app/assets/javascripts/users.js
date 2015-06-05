@@ -1,35 +1,26 @@
-// $(document).ready(function(){
-//     $('.play').click(function(){
-//       $('#player').removeClass('hide').addClass('show');
-      // $('.card').removeClass('card video');
-    // });
-    // $('#player').data('size','big');
+$(document).ready(function(){
+  $('#upvote').on('click',function(event){
+    event.preventDefault();
+    var video_index = parseInt($('#links_array').attr("class"));
+    links_obj = $.parseJSON($('#links_array').html())
 
-    //   $(window).scroll(function(){
-    //     if($(document).scrollTop() > 0)
-    //     {
+    var key = Object.keys(links_obj[video_index])
+    $.post(window.location.pathname+'/links/'+key,{vote: "upvote"})
+  })
 
-    //       if($('#player').data('size') == 'big')
-    //       {
-    //           $('#player').data('size','small');
-    //           $('#player').stop().animate({
-    //               height:'150px'
-    //           },600);
-    //       }
-    //     }
+  $('#downvote').on('click',function(event){
+    event.preventDefault();
+    var video_index = parseInt($('#links_array').attr("class"));
+    video_index+=1;
+    $('#links_array').attr("class",video_index);
 
-      // else
+    links_obj = $.parseJSON($('#links_array').html())
 
-      //   {
-      //     if($('#player').data('size') == 'small')
-      //     {
-      //         $('#player').data('size','big');
-      //         $('#player').stop().animate({
-      //             height:'100px'
-      //         },600);
-      //     }  
-      //   }
-      // });
+    var key = Object.keys(links_obj[video_index])
+    
 
-// });
+    $('#player').html("<a class='embedly-card' href="+links_obj[video_index][key]+"></a>")
 
+    $.post(window.location.pathname+'/links/'+key,{vote: "downvote"})
+  })
+})
