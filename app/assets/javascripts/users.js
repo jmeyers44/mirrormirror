@@ -22,4 +22,14 @@ $(document).ready(function(){
     $('#player').html("<a class='embedly-card' href="+links_obj[new_video_index][newKey]+"></a>")
     $.post(window.location.pathname+'/links/'+oldKey,{vote: "downvote"})
   })
+
+  
+  // $('.progress-bar').ready(function(){
+  //   var speed = 11;//seconds
+  //   $("#progress-bar").css("animation", "load "+speed+"s");
+  //   $("#progress-bar").css("animation-fill-mode", "forwards");
+  //   // alert("workd!");
+  // })
+
+
 })

@@ -1,3 +1,5 @@
+"use strict";
+
 function addplayer(){
   // debugger;
 
@@ -5,6 +7,15 @@ function addplayer(){
   $('#links_array').attr("class","0")
   <!-- $('#player').attr("class","<%#= j @link.id.to_s %>") -->
   $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
+ 
+  function getCard(){
+    // alert("Boom!");
+    $('#player > .embedly-card').attr('autoplay', true);
+    debugger;
+  }
+  
+  setTimeout(getCard, 2500);
+
 }
 
 addplayer();

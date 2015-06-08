@@ -11,6 +11,9 @@
   /*height: 500px;*/
 }
 
+/*body {
+  background-color: #fff;
+}*/
 
 
 /*.page {
@@ -23,29 +26,48 @@
   top: 0px;
 }
 
-.loading {
+
+
+body .loading {
   /*background: url(/random_background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
-  background: #232323;
+  /*background: #232323;*/
+  background: image-url('bg/beyonce.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .full-bar {
   width: 15%;
   height: 2px;
-  background-color: #fff;
+  background-color: #282828;
   padding: 0;
   margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .progress-load {
 height: 2px;
 background-color: #fff;
--webkit-transition: width 2s; /* Safari */
-transition: width 2s;
+width: 47%;
+/*-webkit-transition: width 1s ease-in-out;
+-moz-transition: width 1s ease-in-out;
+-o-transition: width 1s ease-in-out;
+transition: width 1s ease-in-out;   
+width:100%;*/
 }
+
+/*@-webkit-keyframes load {
+    from {width: 0%;}
+    to {width: 100%;}
+}*/
 
 .feed-me {
   z-index: 99;

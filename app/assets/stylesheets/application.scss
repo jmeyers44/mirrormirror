@@ -18,6 +18,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+  /*background-image: url('/bg/beyonce.jpg');*/
+  height: 100%;
+}
+/*
+
+.home-index {
+  background-color: #1a1a1a;
+}
+
+h1, p {
+  color: #fff;
+}
+*/
+
 .main {
   text-align: left;
 }
