@@ -1,4 +1,5 @@
 <body>
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <div class="container-fluid col-xs-12 page">
 
     <!-- ////////// NAV BAR ////////// -->
@@ -39,6 +40,11 @@
     <div id="links_array" style="visibility:hidden;"></div>
     <button id="upvote">Upvote</button>
     <button id="downvote">Downvote</button>
+    <div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+    <h1 id="HI"></h1>
+</div>
     <p>
     <table>
       <tr>
@@ -48,6 +54,7 @@
         <td><strong>ALBUM</strong></td>
         <td><strong>PLAYS</strong></td>
       </tr>
+
       <% @songs.each do |song| %>
         <tr class="song-row">
           <td>
@@ -67,10 +74,13 @@
           </td>
         </tr>
       <% end %>
+
     </table>
   </div>
   </div>
   <div class="col-xs-1 main"></div>  
+   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 </div>
 </body>

@@ -32,4 +32,28 @@ $(document).ready(function(){
   // })
 
 
+  $(function() {
+    var availableTags = 
+    $('tbody > tr > td a').map(function(){return $(this).text();}).get();
+    // $( "#tags" ).autocomplete({
+    //   source: availableTags
+    // });
+  });
+
+  jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+  
+  $( "#tags" ).keyup(function(){ $('.song-row:not(:Contains('+$('#tags').val()+'))').hide(); });
+  $( "#tags" ).keyup(function(){ $('.song-row:Contains('+$('#tags').val()+')').show(); });
+
+  setInterval(function(){if($('#tags').val()=== ""){
+    $('.song-row').show();
+  }
+},40);
+
+
+  
 })
