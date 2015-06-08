@@ -7,15 +7,31 @@ function addplayer(){
   $('#links_array').attr("class","0")
   <!-- $('#player').attr("class","<%#= j @link.id.to_s %>") -->
   $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
- 
-  function getCard(){
-    // alert("Boom!");
-    $('#player > .embedly-card').attr('autoplay', true);
-    debugger;
-  }
-  
-  setTimeout(getCard, 2500);
 
 }
 
 addplayer();
+
+
+
+
+function getCard(){
+  $('iframe.embedly-card').each(function(){
+    // Create the player.
+    var player = new playerjs.Player(this);
+    // Wait for the player to be ready before attaching more event.
+    player.on('ready', function(){  
+      //When the user hits play, do something.
+       // debugger;
+       player.play();
+          // player.on('play', function(){
+            // console.log('play');
+       // debugger;
+       //    });
+
+    });
+  });
+    
+  }
+
+  setTimeout(getCard, 1000);
