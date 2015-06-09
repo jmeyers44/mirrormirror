@@ -11,11 +11,12 @@
       <%= image_tag('logo.png') %>
       <p>
 
-      <%= image_tag('upload.png') %>
-      <br>
       <h4>Upload your iTunes Library</h4>
   
       <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
+
+      <p><a href="#"><%= image_tag('upload.png') %></a>
+      <br>
 
         <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
         <%= f.file_field :name %> <%= f.submit %>
