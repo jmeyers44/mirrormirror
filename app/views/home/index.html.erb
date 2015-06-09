@@ -1,5 +1,7 @@
-<body class="home-index">
-<div class="container">
+<!-- <script src="jquery-ui-1.8.22.custom.min.js"></script> -->
+
+<body class="black-bg">
+<div class="container front">
   <div class="col-xs-2"></div>
   <div class="col-xs-8 main">
     
@@ -16,4 +18,14 @@
 
   <div class="col-xs-2"></div>
 </div>
+
+<%= javascript_include_tag "application" %>
+    <script>
+      $(function() {
+            var BV = new $.BigVideo();
+      BV.init();
+      BV.show("http://www.dacewillmott.com/eat.mp4",{ambient:true});
+      });
+    </script>
+
 </body>

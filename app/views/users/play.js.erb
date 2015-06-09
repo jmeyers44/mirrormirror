@@ -21,17 +21,25 @@ function getCard(){
     var player = new playerjs.Player(this);
     // Wait for the player to be ready before attaching more event.
     player.on('ready', function(){  
-      //When the user hits play, do something.
-       // debugger;
-       player.play();
-          // player.on('play', function(){
-            // console.log('play');
-       // debugger;
-       //    });
+       
+      player.play();
+
+      // {
+      //   context: 'player.js',
+      //   version: 'version',
+      //   event: 'ended',
+      //   debugger;
+      // }   
+
+           
 
     });
   });
     
   }
 
-  setTimeout(getCard, 1000);
+  setTimeout(getCard, 1500);
+
+
+
+
