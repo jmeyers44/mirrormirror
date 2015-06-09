@@ -3,7 +3,7 @@ class ParseLibrary
   def add_library_to_db(file, current_user)
     parse(file)
     # current_user = {username: "flash"}
-    new_user = User.create(current_user)
+    new_user = User.find(current_user.id)
     @library_array.each do |track_hash|
       artist = add_artist(track_hash["Artist"])
       album = add_album(track_hash["Album"], artist)

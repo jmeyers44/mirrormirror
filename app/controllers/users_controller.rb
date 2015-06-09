@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+# before_action :authenticate_user!
 
   def uploads
     user_file = params["user"]["name"].tempfile.path

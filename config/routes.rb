@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  devise_for :users
   resources :users
   resources :songs
   resources :albums
   resources :artists
+
+  post '/users/upload', :controller => 'users', :action => 'uploads'
+  post '/users/parse', :controller => 'users', :action => 'parse'
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
+
+  get 'users/:user_id/play/:id' => 'users#play'
+  post 'users/:user_id/links/:id' => 'users#accuracy_rating'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
