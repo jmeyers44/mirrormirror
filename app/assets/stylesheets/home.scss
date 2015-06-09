@@ -7,6 +7,7 @@
  position: absolute;
  top: 0;
  left: 0; 
+ width: 100%;
 }
 
 
@@ -21,4 +22,8 @@ body .black-bg {
 
 .right-panel {
   text-align: right;
+}
+
+.col-xs-2 {
+  height: 300px;
 }
