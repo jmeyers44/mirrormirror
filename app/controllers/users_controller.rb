@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @songs = Song.all
-    @user = User.find(params[:id])
+    @songs = current_user.songs
+    @user = current_user
   end
 
   def parse
