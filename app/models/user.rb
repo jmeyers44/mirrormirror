@@ -1,8 +1,17 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  has_many :user_songs
-  has_many :songs, through: :user_songs
+class Song 
+  include Neo4j::ActiveNode
+  property :name, type: String
+  property :track_number, type: Integer
+
+  has_one :in, :album
+  has_many :in, :users
+
+  def self.find_or_create_by(hash)
+    if Song.find_by(hash)
+      Song.find_by(hash)
+    else
+      Song.create(hash)
+    end
+  end
+
 end

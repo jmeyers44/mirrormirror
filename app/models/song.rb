@@ -1,11 +1,18 @@
-class Song < ActiveRecord::Base
-  belongs_to :album
-  has_many :song_tags
-  has_many :tags, through: :song_tags
-  has_many :user_songs
-  has_many :users, through: :user_songs
-  has_many :links
+class Song 
+  include Neo4j::ActiveNode
+  property :name, type: String
+  property :track_number, type: Integer
 
-  searchkick
-  
+  has_one :in, :album
+  has_many :in, :users
+  has_many :out, :links, rel_type: 'HasLink'
+
+  def self.find_or_create_by(hash)
+    if Song.find_by(hash)
+      Song.find_by(hash)
+    else
+      Song.create(hash)
+    end
+  end
+
 end

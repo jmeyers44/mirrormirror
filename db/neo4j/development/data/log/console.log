@@ -1,0 +1,24 @@
+2015-06-09 16:02:17.375+0000 INFO  [API] Setting startup timeout to: 120000ms based on -1
+2015-06-09 16:02:18.470+0000 INFO  [API] Successfully started database
+2015-06-09 16:02:18.522+0000 INFO  [API] Starting HTTP on port :7000 with 40 threads available
+2015-06-09 16:02:18.768+0000 INFO  [API] Mounted discovery module at [/]
+2015-06-09 16:02:18.778+0000 INFO  [API] Mounted REST API at [/db/data/]
+2015-06-09 16:02:18.781+0000 INFO  [API] Mounted management API at [/db/manage/]
+2015-06-09 16:02:18.782+0000 INFO  [API] Mounted webadmin at [/webadmin]
+2015-06-09 16:02:18.782+0000 INFO  [API] Mounted Neo4j Browser at [/browser]
+2015-06-09 16:02:18.837+0000 INFO  [API] Mounting static content at [/webadmin] from [webadmin-html]
+2015-06-09 16:02:18.895+0000 INFO  [API] Mounting static content at [/browser] from [browser]
+12:02:18.897 [main] WARN  o.e.j.server.handler.ContextHandler - o.e.j.s.ServletContextHandler@71a3a190{/,null,null} contextPath ends with /
+12:02:18.897 [main] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
+12:02:18.899 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.0.5.v20130815
+12:02:18.929 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.MovedContextHandler@18a645fd{/,null,AVAILABLE}
+12:02:19.036 [main] INFO  o.e.j.w.StandardDescriptorProcessor - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+12:02:19.052 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@11a7ba62{/webadmin,jar:file:/Users/flashback/Development/project_mode/graphmirror/db/neo4j/development/system/lib/neo4j-server-2.1.4-static-web.jar!/webadmin-html,AVAILABLE}
+12:02:19.565 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6bf13698{/db/manage,null,AVAILABLE}
+12:02:19.767 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7d5508e0{/db/data,null,AVAILABLE}
+12:02:19.785 [main] INFO  o.e.j.w.StandardDescriptorProcessor - NO JSP Support for /browser, did not find org.apache.jasper.servlet.JspServlet
+12:02:19.787 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@367d2816{/browser,jar:file:/Users/flashback/Development/project_mode/graphmirror/db/neo4j/development/system/lib/neo4j-browser-2.1.4.jar!/browser,AVAILABLE}
+12:02:19.884 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@71a3a190{/,null,AVAILABLE}
+12:02:19.913 [main] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@7be7e15{HTTP/1.1}{localhost:7000}
+2015-06-09 16:02:19.914+0000 INFO  [API] Server started on: http://localhost:7000/
+2015-06-09 16:02:19.914+0000 INFO  [API] Remote interface ready and available at [http://localhost:7000/]

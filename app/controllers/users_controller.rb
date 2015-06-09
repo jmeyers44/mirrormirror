@@ -7,8 +7,8 @@ class UsersController < ApplicationController
       file.write open(user_file).read 
     end 
     @file = file
-    @songs = Song.all
-    @users = User.all
+    # @songs = Song.all
+    # @users = User.all
     render action: :loading
   end
 

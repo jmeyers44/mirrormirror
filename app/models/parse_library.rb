@@ -1,26 +1,29 @@
-class ParseLibrary < ActiveRecord::Base
-
-
+class ParseLibrary 
+  # include Neo4j::ActiveNode
   def add_library_to_db(file, current_user)
     parse(file)
+    # current_user = {username: "flash"}
+    new_user = User.create(current_user)
     @library_array.each do |track_hash|
       artist = add_artist(track_hash["Artist"])
       album = add_album(track_hash["Album"], artist)
+      # HasAlbum.create(from_node: artist, to_node: album)
       artist.albums << album
       song = add_song(track_hash["Name"], track_hash["Track Number"])
       album.songs << song
-      tag = add_tag(track_hash["Genre"])
-      song.tags << tag
-      current_user.songs << song
-      usersong = UserSong.where(song_id: song.id, user_id: current_user.id).first
+      # tag = add_tag(track_hash["Genre"])
+      # song.tags << tag
+      
+      # new_user.songs << song
+      # usersong = UserSong.where(song_id: song.id, user_id: current_user.id).first
         if track_hash["Play Count"]
-          usersong.update(play_count: track_hash["Play Count"]) 
+          HasSong.create(from_node: new_user, to_node: song, play_count: track_hash["Play Count"]) 
         else
-          usersong.update(play_count: 0)
+          HasSong.create(from_node: new_user, to_node: song)
         end
     end
   end
-  
+
   def parse(file)
     doc = Nokogiri::XML(File.open(file))
     @library_array = []
@@ -66,17 +69,7 @@ class ParseLibrary < ActiveRecord::Base
     song
   end
 
-  def add_tag(genre)
-    if genre
-      Tag.find_or_create_by(name: genre)
-    else
-      Tag.find_or_create_by(name: "unknown")
-    end
-  end
-
-
-
-
 end
+
 
 
