@@ -3,20 +3,32 @@
 <body class="black-bg">
 <div class="container front">
   <div class="col-xs-2"></div>
-  <div class="col-xs-8 main">
-    
-      <h1>Upload your iTunes Library</h1>
-    
+  <div class="col-xs-9">
+    <p>&nbsp;</p>
+    <br>&nbsp;</br>
+
+    <br><center>
+      <%= image_tag('logo.png') %>
+      <p>
+
+      <%= image_tag('upload.png') %>
+      <br>
+      <h4>Upload your iTunes Library</h4>
+  
       <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
 
         <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
         <%= f.file_field :name %> <%= f.submit %>
     <% end %>
 
-    
+    </center>
   </div>
 
-  <div class="col-xs-2"></div>
+  <div class="col-xs-1 right-panel">
+    
+  </div>
+      
+
 </div>
 
 <%= javascript_include_tag "application" %>
@@ -24,7 +36,7 @@
       $(function() {
             var BV = new $.BigVideo();
       BV.init();
-      BV.show("http://www.dacewillmott.com/eat.mp4",{ambient:true});
+      BV.show("http://www.dacewillmott.com/mirrormirror.mp4",{ambient:true});
       });
     </script>
 
