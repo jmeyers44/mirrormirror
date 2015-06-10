@@ -13,28 +13,24 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= image_tag('logo.png', class: "small-logo", height: 25) %>
+        <a class="navbar-brand" href="#"><%= image_tag('logo.png', height: 25) %></a> 
 
-        
+        <div id="links_array" style="visibility:hidden;"></div>
+      <button id="upvote">Upvote</button>
+      <button id="downvote">Downvote</button>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
-        <ul class="nav navbar-nav navbar-right items">
-          <li>
-            <%= image_tag('search.png', height: 20) %>
-            <input id="tags" size="60">
-          </li>
-          
-          <li class="log-in">
-            <!-- <a href="#">Log in</a> -->
-          </li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Log in</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- ////////// END NAV BAR ////////// -->
+
     <div id="player" class="feed-me">
     
     <!-- <div style="border: 2px solid blue; width: 70%;"> -->
@@ -43,7 +39,7 @@
       </div> -->
       
       <!-- </div> -->
-   
+
   </div>
    
 <!--   <div style="height:400px; background-color: blue;position:fixed;top:0; width:100%; left:0;"></div>
@@ -52,19 +48,20 @@
   <div class="container-fluid list-wrapper">
     <div class="col-xs-1 main"></div>  
     <div class="col-xs-10 main">  
-      <center>
-     <!--  <div class="ui-widget">
-        <label for="tags">Tags: </label>
-        
-      </div> -->
-      
-      <table width="100%">
+      <br><center>
+      <div class="ui-widget">
+        <!-- <label for="tags">Tags: </label> -->
+        <%= image_tag('search.png', height: 20) %>
+        <input id="tags" size="50">
+      </div>
+      <p>
+      <table>
       <tr>
-        <td width="5%">&nbsp;</td> 
-        <td width="33%"><strong>SONG</strong></td>
-        <td width="22%"><strong>ARTIST</strong></td>
-        <td width="35%"><strong>ALBUM</strong></td>
-        <td width="5%"><strong>PLAYS</strong></td>
+        <td>&nbsp;</td> 
+        <td><strong>SONG</strong></td>
+        <td><strong>ARTIST</strong></td>
+        <td><strong>ALBUM</strong></td>
+        <td><strong>PLAYS</strong></td>
       </tr>
 
       <% @songs.each do |song| %>
@@ -79,7 +76,7 @@
             <%= truncate(song.album.artist.name, length: 40) %>
           </td>
           <td>
-            <%= truncate(song.album.name, length: 40) %>
+            <%= truncate(song.album.name, length: 25) %>
           </td>
           <td>
            <%= current_user.songs.first_rel_to(song.id).play_count %>
