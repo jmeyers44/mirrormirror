@@ -1,4 +1,4 @@
-<body>
+<body style="background-color: #fff">
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <div class="container-fluid col-xs-12 page">
 
@@ -13,46 +13,58 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><%= image_tag('logo.png', height: 25) %></a>
+        <%= image_tag('logo.png', class: "small-logo", height: 25) %>
+
+        
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <ul class="nav navbar-nav navbar-right items">
+          <li>
+            <%= image_tag('search.png', height: 20) %>
+            <input id="tags" size="60">
+          </li>
+          
+          <li class="log-in">
+            <!-- <a href="#">Log in</a> -->
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- ////////// END NAV BAR ////////// -->
-
-  <div id="player" class="feed-me">
-    <div class="responsive-object" style="height:375px;position:absolute;width:400px;left:43%;margin-left:-100px">
-    </div>
+    <div id="player" class="feed-me">
+    
+    <!-- <div style="border: 2px solid blue; width: 70%;"> -->
+      <center><%= image_tag('logo.png', class: "mm-logo") %></center>
+      <!-- <div class="responsive-object" style="height:350px;position:absolute;width:400px;left:43%;margin-left:-100px">
+      </div> -->
+      
+      <!-- </div> -->
+   
   </div>
+   
 <!--   <div style="height:400px; background-color: blue;position:fixed;top:0; width:100%; left:0;"></div>
  -->
   <div style="margin-top:400px;">
-  <div class="col-xs-1 main"></div>  
-  <div class="col-xs-10 main">  
-  
-    <div id="links_array" style="visibility:hidden;"></div>
-    <button id="upvote">Upvote</button>
-    <button id="downvote">Downvote</button>
-    <div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
-    <h1 id="HI"></h1>
-</div>
-    <p>
-    <table>
+  <div class="container-fluid list-wrapper">
+    <div class="col-xs-1 main"></div>  
+    <div class="col-xs-10 main">  
+      <center>
+     <!--  <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        
+      </div> -->
+      
+      <table width="100%">
       <tr>
-        <td>&nbsp;</td> 
-        <td><strong>SONG</strong></td>
-        <td><strong>ARTIST</strong></td>
-        <td><strong>ALBUM</strong></td>
-        <td><strong>PLAYS</strong></td>
+        <td width="5%">&nbsp;</td> 
+        <td width="33%"><strong>SONG</strong></td>
+        <td width="22%"><strong>ARTIST</strong></td>
+        <td width="35%"><strong>ALBUM</strong></td>
+        <td width="5%"><strong>PLAYS</strong></td>
       </tr>
 
       <% @songs.each do |song| %>
@@ -67,7 +79,7 @@
             <%= truncate(song.album.artist.name, length: 40) %>
           </td>
           <td>
-            <%= truncate(song.album.name, length: 25) %>
+            <%= truncate(song.album.name, length: 40) %>
           </td>
           <td>
            <%= current_user.songs.first_rel_to(song.id).play_count %>
@@ -76,9 +88,11 @@
       <% end %>
 
     </table>
-  </div>
-  </div>
-  <div class="col-xs-1 main"></div>  
+    </div>
+    </div></center>
+    <div class="col-xs-1 main"></div> 
+
+  </div> 
    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
