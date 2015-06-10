@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'users/:user_id/play/:id' => 'users#play'
   post 'users/:user_id/links/:id' => 'users#accuracy_rating'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
