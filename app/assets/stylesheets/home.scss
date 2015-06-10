@@ -11,13 +11,25 @@
 }
 
 .mm-logo {
-  width: 60%;
-  height: 60%;
+  padding-top: 150px;
 }
 
-body .black-bg {
+body {
  background-color: #000;
   
+}
+
+.items {
+  /*padding-top: 10px 0px 0px 0px;*/
+  /*border: 1px solid red;*/
+  vertical-align: center;
+  width: 70%;
+  /*float: right;*/
+  padding-top: 10px;
+}
+
+#tags {
+  margin-left: 20px;
 }
 
 .col-xs-6 .main {
@@ -31,3 +43,11 @@ body .black-bg {
 .col-xs-2 {
   height: 300px;
 }
+
+table a:not(.btn) {
+  text-decoration: none;
+}
+
+/*form {
+  border: 0px 0px 1px 0px solid #000;
+}*/
