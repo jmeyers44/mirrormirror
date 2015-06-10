@@ -1,7 +1,6 @@
 "use strict";
 
 function addplayer(){
-  // debugger;
 
   $('#links_array').html("<%= j @links_array_hash.to_json %>")
   $('#links_array').attr("class","0")
@@ -13,30 +12,22 @@ function addplayer(){
 addplayer();
 
 
-
-
 function getCard(){
   $('iframe.embedly-card').each(function(){
+
     // Create the player.
     var player = new playerjs.Player(this);
     // Wait for the player to be ready before attaching more event.
+    
     player.on('ready', function(){  
-       
       player.play();
-
-      // player.ended(){
-      //   // {
-      // //   context: 'player.js',
-      // //   version: 'version',
-      // //   event: 'ended',
-      // //   debugger;
-      // // } 
-      //  debugger;
-      // }  
-
-           
-
     });
+
+    player.on('ended', function(){
+        // Code that needs to find next sibling in table list and start autoplaying.
+        debugger;
+      })
+
   });
     
   }

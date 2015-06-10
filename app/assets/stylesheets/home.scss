@@ -15,7 +15,7 @@
   height: 60%;
 }
 
-body .black-bg {
+body {
  background-color: #000;
   
 }
@@ -31,3 +31,7 @@ body .black-bg {
 .col-xs-2 {
   height: 300px;
 }
+
+a {
+   text-decoration: none;
+} 

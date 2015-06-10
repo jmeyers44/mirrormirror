@@ -19,8 +19,8 @@
 @import "bootstrap";
 
 html, body {
-  /*background-image: url('/bg/beyonce.jpg');*/
   height: 100%;
+  background-color: #000
 }
 /*
 
@@ -61,7 +61,7 @@ h1, h3 {
 
 td {
   padding: 6px 10px 6px 10px;
-  border-bottom: 1px solid #cccccc
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .play {
