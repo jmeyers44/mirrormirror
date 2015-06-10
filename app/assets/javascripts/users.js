@@ -1,4 +1,11 @@
 $(document).ready(function(){
+  
+  $(document).ready(function(){    
+  $('.mm-logo').delay(100).css({'opacity':0}).animate({'opacity':1}, 2000);
+  
+  });
+
+
   $('#upvote').on('click',function(event){
     event.preventDefault();
     var video_index = parseInt($('#links_array').attr("class"));

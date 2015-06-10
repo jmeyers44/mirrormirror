@@ -4,7 +4,6 @@ class ParseLibrary
     parse(file)
     # current_user = {username: "flash"}
     new_user = User.find(current_user.id)
-    new_user.update(total_plays: 0)
     @library_array.each do |track_hash|
       artist = add_artist(track_hash["Artist"])
       album = add_album(track_hash["Album"], artist)
@@ -19,9 +18,6 @@ class ParseLibrary
       # usersong = UserSong.where(song_id: song.id, user_id: current_user.id).first
         if track_hash["Play Count"]
           HasSong.create(from_node: new_user, to_node: song, play_count: track_hash["Play Count"]) 
-          current_total_plays = new_user.total_plays
-          new_total_plays = current_total_plays + track_hash["Play Count"].to_i
-          new_user.update(total_plays: new_total_plays)
         else
           HasSong.create(from_node: new_user, to_node: song)
         end
