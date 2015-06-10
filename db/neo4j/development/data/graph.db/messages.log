@@ -1398,3 +1398,9 @@ Storage files: (filename : modification date - size)
 2015-06-10 14:54:03.089+0000 INFO  [o.n.s.CommunityNeoServer]: Remote interface ready and available at [http://localhost:7000/]
 2015-06-10 14:54:03.089+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SERVER STARTED END ---
 2015-06-10 14:58:22.563+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: GC Monitor: Application threads blocked for an additional 101ms [total block time: 0.101s]
+2015-06-10 15:08:48.287+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population started: [:Artist(uuid) [provider: {key=lucene, version=1.0}]]
+2015-06-10 15:08:49.240+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population completed. Index is now online: [:Artist(uuid) [provider: {key=lucene, version=1.0}]]
+2015-06-10 15:08:49.367+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population started: [:Album(uuid) [provider: {key=lucene, version=1.0}]]
+2015-06-10 15:08:49.612+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population completed. Index is now online: [:Album(uuid) [provider: {key=lucene, version=1.0}]]
+2015-06-10 15:08:49.833+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population started: [:Song(uuid) [provider: {key=lucene, version=1.0}]]
+2015-06-10 15:08:50.064+0000 INFO  [o.n.k.i.a.i.IndexPopulationJob]: Index population completed. Index is now online: [:Song(uuid) [provider: {key=lucene, version=1.0}]]
