@@ -16,10 +16,6 @@
   background-color: #fff;
 }*/
 
-.feed-me {
-  overflow: hidden;
-}
-
 /*.page {
   border: 10px solid red;
 }*/
@@ -103,8 +99,8 @@ width:100%;*/
   background-color: #000;
   position: fixed;
   left: 0;
+  overflow: hidden;
 }
-
 
 .load-text {
   color: #646464;
