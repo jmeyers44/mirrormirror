@@ -6,15 +6,15 @@
 #player {
   position: fixed;
   top: 0px;
-  padding: -8px 0px 0px 0px;
-  height: 367px;
-  /*border: 2px solid red;*/
-  background-image: url("player_bg_rihanna.jpg"); 
+  background-color: #000;
+  padding: 10px;
+  /*height: 500px;*/
 }
 
 /*body {
   background-color: #fff;
 }*/
+
 
 /*.page {
   border: 10px solid red;
@@ -26,29 +26,6 @@
   top: 0px;
 }
 
-.icon {
-  padding: 0px 100px 0px 0px;
-}
-
-a:link, a:visited, a:hover, a:active {
-  text-decoration: none;
-}
-
-.list-wrapper {
-  padding-bottom: 100px;
-  padding-top: 50px;
-
-  width: 100%;
-}
-
-.small-logo {
-  margin-top: 12px;
-}
-
-.page {
-  background-color: #fff;
-}
-
 
 
 body .loading {
@@ -58,11 +35,11 @@ body .loading {
   -o-background-size: cover;
   background-size: cover;*/
   /*background: #232323;*/
-/*  background: image-url('bg/beyonce.jpg') no-repeat center center fixed; 
+  background: image-url('bg/beyonce.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;*/
+  background-size: cover;
 }
 
 .full-bar {
@@ -99,8 +76,10 @@ width:100%;*/
   background-color: #000;
   position: fixed;
   left: 0;
-  overflow: hidden;
+  /*float: left;*/
+  /*border: 2px solid yellow;*/
 }
+
 
 .load-text {
   color: #646464;

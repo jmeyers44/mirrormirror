@@ -7,7 +7,7 @@ class User
     # If you add another devise module (such as :lockable, :confirmable, or :token_authenticatable), be sure to
     # uncomment the property definitions for those modules. Otherwise, the unused property definitions can be deleted.
     #
-
+     property :total_plays, :type => Integer
      property :username, :type =>   String
      property :facebook_token, :type => String
      index :facebook_token
