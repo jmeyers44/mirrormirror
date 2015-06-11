@@ -28,6 +28,8 @@ class UsersController < ApplicationController
       hash[:artist_name] = query[0][1].name
       hash
     end
+
+    @partial = "songs"
   end
 
   def parse
@@ -41,11 +43,13 @@ class UsersController < ApplicationController
   end
 
   def recommended
-    recommendation_selectivity = 0.01
+    recommendation_selectivity = 0.005
     total_play_count = current_user.total_plays
-    play_threshold = 10
+    play_threshold = total_play_count * recommendation_selectivity
     # binding.pry
-    @songs_users = current_user.query_as(:u).match("u-[r1:has_song]->(s1:Song)<-[r2:has_song]-(u2:User)-[r3:has_song]->(s2:Song)").where("r3.play_count > 5 AND u <> u2 AND r1.play_count > 5 AND NOT (u)-->(s2)").pluck(:s2, :u2).uniq
+    @songs_users = current_user.query_as(:u).match("u-[r1:has_song]->(s1:Song)<-[r2:has_song]-(u2:User)-[r3:has_song]->(s2:Song)").where("r3.play_count > u2.total_plays*#{recommendation_selectivity} AND u <> u2 AND r1.play_count > #{play_threshold} AND NOT (u)-->(s2)").pluck(:s2, :u2).uniq
+    @partial = "recommendations"
+    render :show
   end
 
   def play

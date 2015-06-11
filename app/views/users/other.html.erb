@@ -1,0 +1,87 @@
+<body style="background-color: #fff">
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<div class="container-fluid col-xs-12 page">
+<%= csrf_meta_tag %>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= image_tag('logo.png', class: "small-logo", height: 25) %>
+
+        
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+        <ul class="nav navbar-nav navbar-right items">
+          <!-- <li>
+            <%#= image_tag('search.png', height: 20) %>
+            <input id="tags" size="60">
+          </li>
+          <li><button id="upvote">Upvote</button></li>
+          <li><button id="downvote">Downvote</button></li> -->
+          <li><%= link_to 'Recommendations', "/users/#{current_user.id}/recommended" %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <li class="log-in">
+            <!-- <a href="#">Log in</a> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<% if @songs_users %>  
+
+  <div class="container-fluid list-wrapper">
+    <div class="col-xs-1 main"></div>  
+    <div class="col-xs-10 main">  
+      <center>
+     <!--  <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        
+      </div> -->
+      
+      <table width="100%">
+      <tr>
+        <td width="5%">&nbsp;</td> 
+        <td width="33%"><strong>SONG</strong></td>
+        <td width="22%"><strong>ARTIST</strong></td>
+        <td width="35%"><strong>ALBUM</strong></td>
+        <td width="5%"><strong>USER</strong></td>
+      </tr>
+
+    <% @songs_users.each do |song, user| %>
+      <tr>
+        <td>
+          <a href="/users/<%= user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
+        </td>
+        <td>
+          <%= song.name %>
+        </td>
+        <td>
+          <%= song.album.artist.name %>
+        </td>
+        <td>
+          <%= song.album.name %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+      </tr>
+        
+      <% end %>
+
+    </table>
+    </div>
+    </div>
+    </center>
+    <div class="col-xs-1 main"></div> 
+
+<% else %>
+<h3> Sorry no recommendations at this time </h3>
+<% end %>

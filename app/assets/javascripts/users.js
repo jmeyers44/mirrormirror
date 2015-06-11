@@ -9,11 +9,12 @@ $(document).ready(function(){
   $('#upvote').on('click',function(event){
     event.preventDefault();
     var video_index = parseInt($('#links_array').attr("class"));
-    links_obj = $.parseJSON($('#links_array').html())
+    var links_obj = $.parseJSON($('#links_array').html())
+    var user_id = $('#user_id').text()
 
     var key = Object.keys(links_obj[video_index])
     $.ajax({
-      url: window.location.pathname+'/links/'+key,
+      url: '/users/'+user_id+'/links/'+key,
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {vote: "upvote"}
@@ -26,14 +27,15 @@ $(document).ready(function(){
     var new_video_index = video_index + 1;
     $('#links_array').attr("class",new_video_index);
 
-    links_obj = $.parseJSON($('#links_array').html())
+    var links_obj = $.parseJSON($('#links_array').html())
+    var user_id = $('#user_id').text()
 
     var oldKey = Object.keys(links_obj[video_index])
     var newKey = Object.keys(links_obj[new_video_index])
 
     $('#player').html("<a class='embedly-card' href="+links_obj[new_video_index][newKey]+"></a>")
     $.ajax({
-      url: window.location.pathname+'/links/'+oldKey,
+      url: '/users/'+user_id+'/links/'+oldKey,
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {vote: "downvote"}

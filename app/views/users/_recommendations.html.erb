@@ -1,0 +1,42 @@
+<div class="col-xs-1 main"></div>  
+    <div class="col-xs-10 main">  
+      <center>
+     <!--  <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        
+      </div> -->
+      
+      <table width="100%">
+      <tr>
+        <td width="5%">&nbsp;</td> 
+        <td width="33%"><strong>SONG</strong></td>
+        <td width="22%"><strong>ARTIST</strong></td>
+        <td width="35%"><strong>ALBUM</strong></td>
+        <td width="5%"><strong>USER</strong></td>
+      </tr>
+
+    <% @songs_users.each do |song, user| %>
+      <tr>
+        <td>
+          <a href="/users/<%= user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
+        </td>
+        <td>
+          <%= song.name %>
+        </td>
+        <td>
+          <%= song.album.artist.name %>
+        </td>
+        <td>
+          <%= song.album.name %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+      </tr>
+        
+      <% end %>
+
+    </table>
+    </div>
+    </div>
+    </center>
