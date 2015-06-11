@@ -6,8 +6,8 @@ class Album
   has_many :out, :songs, rel_type: 'HasTrack'
 
   def self.find_or_create_by(hash)
-    if Album.find_by(hash)
-      Album.find_by(hash)
+    if a = Album.find_by(hash)
+      a
     else
       Album.create(hash)
     end

@@ -6,8 +6,8 @@ class Artist
 
 
   def self.find_or_create_by(hash)
-    if Artist.find_by(hash)
-      Artist.find_by(hash)
+    if a = Artist.find_by(hash)
+      a
     else
       Artist.create(hash)
     end
