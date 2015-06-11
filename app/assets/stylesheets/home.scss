@@ -8,6 +8,15 @@
  top: 0;
  left: 0; 
  width: 100%;
+ visibility: hidden;
+}
+
+.upload-instructions {
+  padding-top: 20px;
+}
+
+.sharp-button {
+  padding: 10px 5px 5px 5px;
 }
 
 .icon-set {
@@ -19,10 +28,19 @@
 }
 
 .line {
-  width: 80px;
-  height: 1px;
+  width: 1px;
+  height: 150px;
+  float: right;
   /*padding-bottom: 5px;*/
-  margin-bottom: 15px;
+  
+}
+
+.line-left {
+  width: 1px;
+  height: 150px;
+  float: left;
+  /*padding-bottom: 5px;*/
+  
 }
 
 .icon-single1,
@@ -51,11 +69,13 @@
   float:right;
 }
 
-
-
-
 .mm-logo {
-  padding-top: 100px;
+  padding-top: 80px;
+}
+
+.mm-logo-users {
+  padding-top: 150px;
+  visibility: hidden;
 }
 
 body {

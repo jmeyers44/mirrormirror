@@ -1,8 +1,7 @@
 $(document).ready(function(){
   
   $(document).ready(function(){    
-  $('.mm-logo').delay(100).css({'opacity':0}).animate({'opacity':1}, 2000);
-  
+  $('.mm-logo-users').delay(100).css("visibility","visible").css({'opacity':0}).animate({'opacity':1}, 2000);
   });
 
 
