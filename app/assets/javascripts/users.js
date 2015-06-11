@@ -6,6 +6,14 @@ $(document).ready(function(){
   });
 
 
+  $('.playbutton').on('click',function(){
+    var count_text = $(this).parent().parent().children('#play_count').text();
+    var number = parseInt(count_text);
+    number += 1;
+    $(this).parent().parent().children('#play_count').text(number)
+  });
+
+
   $('#upvote').on('click',function(event){
     event.preventDefault();
     var video_index = parseInt($('#links_array').attr("class"));
