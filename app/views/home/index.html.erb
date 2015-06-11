@@ -7,16 +7,37 @@
     
     <br><center>
       <%= image_tag('logo.png', class: "mm-logo") %>
-      <p>
       <div class="home-content">
-      <h4>Upload your iTunes Library</h4>
-  
-      <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
+      
+      <div class="icon-set">
+        <div class="feature1-logo icon-single1">
+          <%= image_tag('apple.png', class: "feature1-logo") %><br>
+          <%= image_tag('line.png', class: "line") %><br>
+          Find your iTunes music.
+        </div>
+        <div class="feature2-logo icon-single2">
+          <%= image_tag('upload.png', class: "feature2-logo") %><br>
+          <%= image_tag('line.png', class: "line") %><br>
+
+          Upload your library file.
+        </div>
+        <div class="feature3-logo icon-single3">
+          <%= image_tag('youtube.png', class: "feature3-logo") %><br>
+          <%= image_tag('line.png', class: "line") %><br>
+
+          Connect to YouTube.
+        </div>
+      </div>
+
+      <div class="upload-instructions">
+      
 
       <!-- <p><a href="#"><%#= image_tag('upload.png') %></a> -->
       <br>
 
         <% if current_user %>
+        <h4>Upload your iTunes Library</h4>
+        <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
         <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
         <%= f.file_field :name, class: "file-upload" %><p>
         <%= image_submit_tag("upload.png") %>
