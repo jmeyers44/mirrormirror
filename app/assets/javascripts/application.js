@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.embedly-3.1.1.min.js
-//= require bigvideo.js
+//= require bigvideo
 //= require_tree .

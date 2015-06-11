@@ -6,5 +6,5 @@ $(document).ready(function(){
 
   
   $('.upload-instructions').delay(6000).css({'opacity':0}).animate({'opacity':1}, 500);
-
+  
 });
