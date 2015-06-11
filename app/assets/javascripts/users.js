@@ -1,11 +1,23 @@
 $(document).ready(function(){
+  
+  $(document).ready(function(){    
+  $('.mm-logo').delay(100).css({'opacity':0}).animate({'opacity':1}, 2000);
+  
+  });
+
+
   $('#upvote').on('click',function(event){
     event.preventDefault();
     var video_index = parseInt($('#links_array').attr("class"));
     links_obj = $.parseJSON($('#links_array').html())
 
     var key = Object.keys(links_obj[video_index])
-    $.post(window.location.pathname+'/links/'+key,{vote: "upvote"})
+    $.ajax({
+      url: window.location.pathname+'/links/'+key,
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: {vote: "upvote"}
+    })
   })
 
   $('#downvote').on('click',function(event){
@@ -20,7 +32,12 @@ $(document).ready(function(){
     var newKey = Object.keys(links_obj[new_video_index])
 
     $('#player').html("<a class='embedly-card' href="+links_obj[new_video_index][newKey]+"></a>")
-    $.post(window.location.pathname+'/links/'+oldKey,{vote: "downvote"})
+    $.ajax({
+      url: window.location.pathname+'/links/'+oldKey,
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: {vote: "downvote"}
+    })
   })
 
   

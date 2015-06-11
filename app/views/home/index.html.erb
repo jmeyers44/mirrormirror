@@ -4,14 +4,11 @@
 <div class="container-fluid front">
   <div class="col-xs-2"></div>
   <div class="col-xs-8">
-    <p>&nbsp;</p>
-    <br>&nbsp;</br>
-
-
+    
     <br><center>
       <%= image_tag('logo.png', class: "mm-logo") %>
       <p>
-
+      <div class="home-content">
       <h4>Upload your iTunes Library</h4>
   
       <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
@@ -19,13 +16,24 @@
       <!-- <p><a href="#"><%#= image_tag('upload.png') %></a> -->
       <br>
 
+        <% if current_user %>
         <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
         <%= f.file_field :name, class: "file-upload" %><p>
         <%= image_submit_tag("upload.png") %>
+        <% end %>
+        <% else %>
+        <%= link_to "Sign Up", new_user_registration_path %><br>
+        <%= link_to "Sign In", new_user_session_path %><br>
 
+        <%= form_for :user, :url => user_session_path(@user) do |f| %>
+        <%= f.hidden_field :email, value: "sample@example.com" %>
+        <%= f.hidden_field :password, value: "password" %> 
+        <%= f.submit "tour as a guest" %>
+        <%end%>
     <% end %>
 
     </center>
+    </p>
   </div>
 
   <div class="col-xs-2">

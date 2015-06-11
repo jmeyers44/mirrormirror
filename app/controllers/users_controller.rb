@@ -83,8 +83,7 @@ class UsersController < ApplicationController
       @link = song.links.order(accuracy_rating: :desc).limit(1).first
 
     end
-
-    links_array = Link.where(song_id: song.id).order(accuracy_rating: :desc).limit(5)
+    links_array = song.links.order(accuracy_rating: :desc).limit(5).to_a
     
     @links_array_hash = links_array.collect do |link|
       {link.id.to_s => link.url}
