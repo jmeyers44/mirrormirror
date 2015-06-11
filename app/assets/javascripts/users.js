@@ -42,12 +42,28 @@ $(document).ready(function(){
     var newKey = Object.keys(links_obj[new_video_index])
 
     $('#player').html("<a class='embedly-card' href="+links_obj[new_video_index][newKey]+"></a>")
+
+
     $.ajax({
       url: '/users/'+user_id+'/links/'+oldKey,
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {vote: "downvote"}
     })
+
+    function getCard(){
+      $('iframe.embedly-card').each(function(){
+        // Create the player.
+        var player = new playerjs.Player(this);
+        // Wait for the player to be ready before attaching more event.
+        // $('#player .feed-me > iframe.embedly-card').attr('height', 400);
+        // $('iframe.embedly-card').attr('height', 400);
+        player.on('ready', function(){  
+          player.play();
+        });
+      });
+    }
+    setTimeout(getCard, 1500);
   })
 
   
