@@ -1,0 +1,46 @@
+#sign-up-body {
+  background-image: image-url("jay_bg.jpg");
+  background-size: cover;
+}
+
+#log-in-body {
+  background-image: image-url("sam_smith_bg.jpg");
+  background-size: cover;
+}
+
+.form-group > h4 {
+  padding: 10px 0px 15px 0px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+
+#logo-devise {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container {
+  overflow: hidden;
+  min-width: 350px;
+  background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0, #242424),
+  color-stop(1, #080808)
+);
+background-image: -o-linear-gradient(bottom, #242424 0%, #080808 100%);
+background-image: -moz-linear-gradient(bottom, #242424 0%, #080808 100%);
+background-image: -webkit-linear-gradient(bottom, #242424 0%, #080808 100%);
+background-image: -ms-linear-gradient(bottom, #242424 0%, #080808 100%);
+background-image: linear-gradient(to bottom, #242424 0%, #080808 100%);
+/*background-color: #000;*/
+  height: 450px;
+  width: 80%;
+  padding: 20px;
+  margin-top: 100px;
+  color: #727272;
+}
+
+
