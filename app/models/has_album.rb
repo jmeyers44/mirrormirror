@@ -1,4 +1,4 @@
-class HasAlbums
+class HasAlbum
   include Neo4j::ActiveRel
 
   from_class Artist
