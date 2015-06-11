@@ -6,10 +6,11 @@ function addplayer(){
   $('#links_array').attr("class","0")
   <!-- $('#player').attr("class","<%#= j @link.id.to_s %>") -->
   $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
-
+  $('.player-icon-button').css("visibility","visible").css({'opacity':0}).animate({'opacity':1}, 300);
 }
 
 addplayer();
+
 
 
 function getCard(){
@@ -21,8 +22,11 @@ function getCard(){
     // $('#player .feed-me > iframe.embedly-card').attr('height', 400);
     // $('iframe.embedly-card').attr('height', 400);
 
+
+
     player.on('ready', function(){  
       player.play();
+      
     });
 
 

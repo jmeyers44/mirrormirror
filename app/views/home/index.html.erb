@@ -9,27 +9,8 @@
       <%= image_tag('logo.png', class: "mm-logo") %>
       <div class="home-content">
       
-      <div class="icon-set">
-        <div class="feature1-logo icon-single1">
-          <%= image_tag('apple.png', class: "feature1-logo") %><br>
-          <%= image_tag('line.png', class: "line") %><br>
-          Find your iTunes music.
-        </div>
-        <div class="feature2-logo icon-single2">
-          <%= image_tag('upload.png', class: "feature2-logo") %><br>
-          <%= image_tag('line.png', class: "line") %><br>
+      
 
-          Upload your library file.
-        </div>
-        <div class="feature3-logo icon-single3">
-          <%= image_tag('youtube.png', class: "feature3-logo") %><br>
-          <%= image_tag('line.png', class: "line") %><br>
-
-          Connect to YouTube.
-        </div>
-      </div>
-
-      <div class="upload-instructions">
       
 
       <!-- <p><a href="#"><%#= image_tag('upload.png') %></a> -->
@@ -43,15 +24,54 @@
         <%= image_submit_tag("upload.png") %>
         <% end %>
         <% else %>
-        <%= link_to "Sign Up", new_user_registration_path %><br>
-        <%= link_to "Sign In", new_user_session_path %><br>
 
-        <%= form_for :user, :url => user_session_path(@user) do |f| %>
-        <%= f.hidden_field :email, value: "sample@example.com" %>
-        <%= f.hidden_field :password, value: "password" %> 
-        <%= f.submit "tour as a guest" %>
+          <div class="icon-set">
+            <div class="feature1-logo icon-single1">
+              <%= image_tag('line.png', class: "line") %>
+              <%= image_tag('apple.png', class: "feature1-logo") %>
+              <br>
+
+              Find your iTunes music.
+            </div>
+            <div class="feature2-logo icon-single2">
+              <%= image_tag('upload.png', class: "feature2-logo") %>
+                <br>
+
+              Upload your library file.
+            </div>
+            <div class="feature3-logo icon-single3">
+              <%= image_tag('youtube.png', class: "feature3-logo") %>
+              <%= image_tag('line.png', class: "line-left") %><br>
+
+              Stream from YouTube.
+            </div>
+
+
+
+
+
+          
+           <div class="upload-instructions">
+
+            <div class="feature1-logo icon-single1">
+            <%= link_to image_tag("sign_up.png", class: "sharp-button"), new_user_registration_path %><br>  
+            </div>
+            <div class="feature2-logo icon-single2">
+              <%= link_to image_tag("log_in.png", class: "sharp-button"), new_user_session_path %><br>
+            </div>
+            <div class="feature3-logo icon-single3">
+              <%= form_for :user, :url => user_session_path(@user) do |f| %>
+          <%= f.hidden_field :email, value: "sample@example.com" %>
+          <%= f.hidden_field :password, value: "password" %> 
+          <%= image_submit_tag("guest_user.png", class: "sharp-button") %>
         <%end%>
+            </div>
+
     <% end %>
+
+          </div>
+          <p>
+          
 
     </center>
     </p>
