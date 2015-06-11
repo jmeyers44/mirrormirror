@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require jquery.embedly-3.1.1.min.js
 //= require bigvideo.js
+//= require graph-creator.js
 //= require_tree .

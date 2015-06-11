@@ -122,4 +122,7 @@ class UsersController < ApplicationController
     # end
   end
 
+  def loading_recommendations
+  end
+
 end
