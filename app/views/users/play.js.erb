@@ -7,6 +7,7 @@ function addplayer(){
   <!-- $('#player').attr("class","<%#= j @link.id.to_s %>") -->
   $('#player').html("<a class='embedly-card' href='<%= j @link.url %>'></a>")
 
+
 }
 
 addplayer();
@@ -29,6 +30,11 @@ function getCard(){
     player.on('ended', function(){
         // Code that needs to find next sibling in table list and start autoplaying.
         // debugger;
+        var song_id = $('#current_song').text();
+        var song_id_int = parseInt(song_id);
+        song_id_int += 1;
+        $('#'+song_id_int+'.song-row > td > a > img').click()
+
       })
 
   });

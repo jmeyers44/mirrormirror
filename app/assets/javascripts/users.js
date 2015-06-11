@@ -7,7 +7,10 @@ $(document).ready(function(){
 
 
   $('.playbutton').on('click',function(){
-    var count_text = $(this).parent().parent().children('#play_count').text();
+    var $song = $(this).parent().parent()
+    current_song_id = $song.attr("id")
+    $('#current_song').text(current_song_id)
+    var count_text = $song.children('#play_count').text();
     var number = parseInt(count_text);
     number += 1;
     $(this).parent().parent().children('#play_count').text(number)

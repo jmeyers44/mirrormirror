@@ -1,5 +1,6 @@
 class ParseLibrary 
   # include Neo4j::ActiveNode
+  include ActionController::Live
   def add_library_to_db(file, current_user)
     parse(file)
     # current_user = {username: "flash"}
