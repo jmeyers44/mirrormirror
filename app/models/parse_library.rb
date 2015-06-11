@@ -1,5 +1,6 @@
 class ParseLibrary 
   # include Neo4j::ActiveNode
+  include ActionController::Live
   def add_library_to_db(file, current_user)
     parse(file)
     # current_user = {username: "flash"}
@@ -28,7 +29,7 @@ class ParseLibrary
           new_total_plays = current_total_plays + track_hash["Play Count"].to_i
           new_user.update(total_plays: new_total_plays)
         else
-          HasSong.create(from_node: new_user, to_node: song)
+          HasSong.create(from_node: new_user, to_node: song, play_count: 0)
         end
     end
   end

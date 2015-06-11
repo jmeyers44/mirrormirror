@@ -11,8 +11,8 @@
         <td width="5%"><strong>PLAYS</strong></td>
       </tr>
 
-      <% @song_array.each do |song| %>
-        <tr class="song-row">
+      <% @song_array.each_with_index do |song,index| %>
+        <tr id = "<%= index.to_s %>" class="song-row">
           <td>
             <a href="/users/<%= @user.id %>/play/<%= song[:song_id] %>" data-remote="true" class="playbutton"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
           </td>
@@ -26,7 +26,7 @@
             <%= truncate(song[:album_name], length: 25) %>
           </td>
           <td id="play_count">
-           <%= current_user.songs.first_rel_to(song[:song_id]).play_count %>
+          <%= current_user.songs.first_rel_to(song[:song_id]).play_count %>
           </td>
         </tr>
       <% end %>

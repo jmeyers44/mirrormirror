@@ -8,10 +8,10 @@ class Song
   has_many :out, :links, rel_type: 'HasLink'
 
   def self.find_or_create_by(hash)
-    if Song.find_by(hash)
-      Song.find_by(hash)
+    if s = Song.find_by(hash)
+      s
     else
-      Song.create(hash)
+       Song.create(hash)
     end
   end
 

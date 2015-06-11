@@ -93,11 +93,11 @@ class UsersController < ApplicationController
       {link.id.to_s => link.url}
     end
 
-    user_song_rel = current_user.songs.first_rel_to(song.id)
+    if user_song_rel = current_user.songs.first_rel_to(song.id)
     current_play_count = user_song_rel.play_count
     @play_count = current_play_count + 1
     user_song_rel.update(play_count: @play_count)
-
+    end
 
     respond_to do |format|
       format.js

@@ -16,3 +16,5 @@
 /db/neo4j/development/data/graph.db/*
 /db/neo4j/development/data/log/*
 /db/neo4j/development/data/neo4j-service.pid
+/db/neo4j/development/data/rrd
+
