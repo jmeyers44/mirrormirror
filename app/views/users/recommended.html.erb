@@ -1,9 +1,0 @@
-<h1> Recommended for You! </h1>
-<%= @total_play_count %>
-<% if @songs_users %> 
-  <% @songs_users.each do |song, user| %>
-    <h3><%= song.name %> By: <%= song.album.artist.name %> From: <%= user.email %> </h3>
-  <% end %>
-<% else %>
-<h3> Sorry no recommendations at this time </h3>
-<% end %>
