@@ -1,6 +1,7 @@
 <body style="background-color: #fff">
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <div class="container-fluid col-xs-12 page">
+<%= csrf_meta_tag %>
 
     <!-- ////////// NAV BAR ////////// -->
 
@@ -25,7 +26,10 @@
             <%= image_tag('search.png', height: 20) %>
             <input id="tags" size="60">
           </li>
-          
+          <li><button id="upvote">Upvote</button></li>
+          <li><button id="downvote">Downvote</button></li>
+          <li><%= link_to 'Recommendations', "/users/#{current_user.id}/recommended" %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <li class="log-in">
             <!-- <a href="#">Log in</a> -->
           </li>
@@ -35,6 +39,7 @@
   </nav>
 
   <!-- ////////// END NAV BAR ////////// -->
+  <div id="links_array" style="visibility:hidden;"></div>
     <div id="player" class="feed-me">
     
     <!-- <div style="border: 2px solid blue; width: 70%;"> -->
@@ -67,22 +72,42 @@
         <td width="5%"><strong>PLAYS</strong></td>
       </tr>
 
-      <% @songs.each do |song| %>
+      <%# @songs.each do |song| %>
+        <!-- <tr class="song-row">
+          <td>
+            <a href="/users/<%#= @user.id %>/play/<%#= song.id %>" data-remote="true"><%#= image_tag('icons/play.png', class: 'play', height: 30) %></a>
+          </td>
+          <td>
+            <a href="#"><%#= truncate(song.name, length: 40) %></a>
+          </td>
+          <td>
+            <%#= truncate(song.album.artist.name, length: 40) %>
+          </td>
+          <td>
+            <%#= truncate(song.album.name, length: 25) %>
+          </td>
+          <td>
+           <%#= current_user.songs.first_rel_to(song.id).play_count %>
+          </td>
+        </tr> -->
+      <%# end %>
+
+      <% @song_array.each do |song| %>
         <tr class="song-row">
           <td>
-            <a href="/users/<%= @user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
+            <a href="/users/<%= @user.id %>/play/<%= song[:song_id] %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
           </td>
           <td>
-            <a href="#"><%= truncate(song.name, length: 40) %></a>
+            <a href="#"><%= truncate(song[:song_name], length: 40) %></a>
           </td>
           <td>
-            <%= truncate(song.album.artist.name, length: 40) %>
+            <%= truncate(song[:artist_name], length: 40) %>
           </td>
           <td>
-            <%= truncate(song.album.name, length: 40) %>
+            <%= truncate(song[:album_name], length: 25) %>
           </td>
           <td>
-           <%= current_user.songs.first_rel_to(song.id).play_count %>
+           <%= current_user.songs.first_rel_to(song[:song_id]).play_count %>
           </td>
         </tr>
       <% end %>

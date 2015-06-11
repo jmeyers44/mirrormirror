@@ -16,12 +16,24 @@ class UsersController < ApplicationController
   def show
     @songs = current_user.songs
     @user = current_user
+    @song_array = @songs.collect do |song|
+    # binding.pry
+
+      hash = {}
+      query = song.query_as(:s).match("s<-[r1]-(album:Album)<-[r2]-(artist:Artist)").pluck(:album, :artist).uniq
+      # hash[:play_count] = 
+      hash[:song_id] = song.id
+      hash[:song_name] = song.name
+      hash[:album_name] = query[0][0].name
+      hash[:artist_name] = query[0][1].name
+      hash
+    end
   end
 
   def parse
     ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
-    @songs = Song.all
-    @users = User.all
+    # @songs = Song.all
+    # @users = User.all
     redirect_to user_path(current_user.id)
   end
 
@@ -31,8 +43,9 @@ class UsersController < ApplicationController
   def recommended
     recommendation_selectivity = 0.01
     total_play_count = current_user.total_plays
-    play_threshold = total_play_count * recommendation_selectivity
-    @songs_users = current_user.query_as(:user1).match("user1-[r1:has_song]->(s1:Song)<-[r2:has_song]-(u2:User)-[r3:has_song]->(s2:Song)").where("r3.play_count > u2.total_plays * #{recommendation_selectivity} AND user1 <> u2 AND r1.play_count > #{play_threshold} AND NOT (user1)-->(s2)").pluck(:s2, :u2).uniq
+    play_threshold = 10
+    # binding.pry
+    @songs_users = current_user.query_as(:u).match("u-[r1:has_song]->(s1:Song)<-[r2:has_song]-(u2:User)-[r3:has_song]->(s2:Song)").where("r3.play_count > 5 AND u <> u2 AND r1.play_count > 5 AND NOT (u)-->(s2)").pluck(:s2, :u2).uniq
   end
 
   def play
@@ -70,8 +83,7 @@ class UsersController < ApplicationController
       @link = song.links.order(accuracy_rating: :desc).limit(1).first
 
     end
-
-    links_array = Link.where(song_id: song.id).order(accuracy_rating: :desc).limit(5)
+    links_array = song.links.order(accuracy_rating: :desc).limit(5).to_a
     
     @links_array_hash = links_array.collect do |link|
       {link.id.to_s => link.url}

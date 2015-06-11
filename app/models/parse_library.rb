@@ -6,12 +6,17 @@ class ParseLibrary
     new_user = User.find(current_user.id)
     new_user.update(total_plays: 0)
     @library_array.each do |track_hash|
+      next if track_hash["TV Show"] || track_hash["Podcast"]
       artist = add_artist(track_hash["Artist"])
       album = add_album(track_hash["Album"], artist)
-      # HasAlbum.create(from_node: artist, to_node: album)
-      artist.albums << album
+      HasAlbum.create(from_node: artist, to_node: album)
+      # artist.albums << album
+
       song = add_song(track_hash["Name"], track_hash["Track Number"])
-      album.songs << song
+      # album.songs << song
+      HasTrack.create(from_node: album, to_node: song)
+
+
       # tag = add_tag(track_hash["Genre"])
       # song.tags << tag
       
