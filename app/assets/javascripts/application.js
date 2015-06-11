@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery.embedly-3.1.1.min.js
+//= require video
+//= require bigvideo
 //= require_tree .
