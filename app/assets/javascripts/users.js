@@ -58,11 +58,17 @@ $(document).ready(function(){
         // Create the player.
         var player = new playerjs.Player(this);
         // Wait for the player to be ready before attaching more event.
-        // $('#player .feed-me > iframe.embedly-card').attr('height', 400);
-        // $('iframe.embedly-card').attr('height', 400);
         player.on('ready', function(){  
           player.play();
         });
+
+        player.on('ended', function(){
+        // Code that needs to find next sibling in table list and start autoplaying.
+          var song_id = $('#current_song').text();
+          var song_id_int = parseInt(song_id);
+          song_id_int += 1;
+          $('#'+song_id_int+'.song-row > td > a > img').click()
+        })
       });
     }
     setTimeout(getCard, 1500);

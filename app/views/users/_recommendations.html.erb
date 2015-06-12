@@ -15,22 +15,22 @@
         <td width="5%"><strong>USER</strong></td>
       </tr>
 
-    <% @songs_users.each_with_index do |song, user, index| %>
+    <% @songs_users.each_with_index do |song_user, index| %>
       <tr id = "<%= index.to_s %>" class="song-row">
         <td>
-          <a href="/users/<%= user.id %>/play/<%= song.id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
+          <a href="/users/<%= song_user[1].id %>/play/<%= song_user[0].id %>" data-remote="true"><%= image_tag('icons/play.png', class: 'play', height: 30) %></a>
         </td>
         <td>
-          <%= song.name %>
+          <%= song_user[0].name %>
         </td>
         <td>
-          <%= song.album.artist.name %>
+          <%= song_user[0].album.artist.name %>
         </td>
         <td>
-          <%= song.album.name %>
+          <%= song_user[0].album.name %>
         </td>
         <td>
-          <%= user.email %>
+          <%= song_user[1].email %>
         </td>
       </tr>
         
