@@ -33,9 +33,10 @@ class UsersController < ApplicationController
   end
 
   def parse
-    ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
-    # @songs = Song.all
-    # @users = User.all
+    params_file_path = params[:file_path]
+    current_user_id = current_user.id
+    Worker.perform_async(params_file_path, current_user_id)
+    
     # redirect_to user_path(current_user.id)
   end
 

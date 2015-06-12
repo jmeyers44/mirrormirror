@@ -26,6 +26,8 @@ gem 'httparty'
 gem 'dotenv-rails'
 
 gem "devise-neo4j"
+
+gem 'sidekiq'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
