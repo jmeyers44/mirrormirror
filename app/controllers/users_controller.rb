@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
     # @songs = Song.all
     # @users = User.all
-    redirect_to user_path(current_user.id)
+    # redirect_to user_path(current_user.id)
   end
 
   def loading
