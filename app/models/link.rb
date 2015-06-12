@@ -1,8 +1,8 @@
 class Link 
   include Neo4j::ActiveNode
 
-  property :url, type: String
-  property :accuracy_rating, type: Integer
+  property :url, type: String, index: :exact
+  property :accuracy_rating, type: Integer, index: :exact
 
   has_one :in, :song
 

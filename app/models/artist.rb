@@ -1,6 +1,6 @@
 class Artist 
   include Neo4j::ActiveNode
-  property :name, type: String
+  property :name, type: String, index: :exact
 
   has_many :out, :albums, rel_type: 'HasAlbum'
 

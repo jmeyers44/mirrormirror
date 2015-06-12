@@ -1,3 +1,4 @@
 $(document).ready(function(){
-  $('.form-container').delay(1200).css({'opacity':0}).animate({'opacity':1}, 800)
+  $('.form-container').css("visibility","visible");
+  $('.form-container').delay(600).css({'opacity':0}).animate({'opacity':1}, 800)
 })
