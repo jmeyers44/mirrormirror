@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def redirect_to_user_show
     if current_user 
       if current_user.songs.count != 0
-        redirect_to user_path(current_user.id)
+        redirect_to "/users/#{current_user.id}/loading"
       end
     end
   end

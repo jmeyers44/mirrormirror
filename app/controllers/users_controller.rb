@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @songs = current_user.songs
+    @songs = current_user.songs.limit(100)
     @user = current_user
     @song_array = @songs.collect do |song|
     # binding.pry
@@ -32,14 +32,43 @@ class UsersController < ApplicationController
     @partial = "songs"
   end
 
+  def load_more_songs
+    current_user = params[:user_id]
+    song_count = params[:song_count].to_i
+    @songs = User.find(current_user).songs.offset(song_count).limit(5)
+    if @songs != []
+      @song_array = @songs.collect do |song|
+        hash = {}
+        query = song.query_as(:s).match("s<-[r1]-(album:Album)<-[r2]-(artist:Artist)").pluck(:album, :artist).uniq
+        # hash[:play_count] = 
+        hash[:song_id] = song.id
+        hash[:song_name] = song.name
+        hash[:album_name] = query[0][0].name
+        hash[:artist_name] = query[0][1].name
+        hash
+      end
+    end
+
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.json {render json: {song_array: @song_array}}
+    end
+
+  end
+
   def parse
-    ParseLibrary.new().add_library_to_db(params[:file_path], current_user)
-    # @songs = Song.all
-    # @users = User.all
+    params_file_path = params[:file_path]
+    current_user_id = current_user.id
+    Worker.perform_async(params_file_path, current_user_id)
+    
     # redirect_to user_path(current_user.id)
   end
 
   def loading
+  end
+
+  def loadingcurrent
+    @current_user = current_user
   end
 
   def recommended

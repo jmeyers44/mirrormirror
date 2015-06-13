@@ -1,10 +1,10 @@
 class ParseLibrary 
   # include Neo4j::ActiveNode
   include ActionController::Live
-  def add_library_to_db(file, current_user)
+  def add_library_to_db(file, current_user_id)
     parse(file)
     # current_user = {username: "flash"}
-    new_user = User.find(current_user.id)
+    new_user = User.find(current_user_id)
     new_user.update(total_plays: 0)
     @library_array.each do |track_hash|
       next if track_hash["TV Show"] || track_hash["Podcast"]

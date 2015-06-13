@@ -19,10 +19,10 @@
     function parser (){
       var file_path = $('#temp_file').text();
       var user_id = $('#user_id').text();
-      $.post("/users/parse",{file_path: file_path}).always(function(){
+      $.post("/users/parse",{file_path: file_path})
+      setTimeout(function(){
           window.location = "/users/"+user_id
-        }
-      )
+        },5000)
     };
     parser();
   </script> 

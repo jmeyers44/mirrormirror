@@ -1,0 +1,19 @@
+<body class="loading">
+  <div class="load-main" style="height:100%;">
+  <div class="full-bar">
+    <div class="progress-load" id="progress-load"></div>
+  </div>
+  <h1 class="load-text">Your playlist is loading</h1>
+  <div id="temp_file" style="visibility:hidden;"><%=@file%></div>
+  <div id="user_id" style="visibility:hidden;"><%= @current_user.id %></div>
+  <script>
+    function waitAndRedirect (){
+      var user_id = $('#user_id').text();
+      setTimeout(function(){
+          window.location = "/users/"+user_id
+        },5000)
+    };
+    waitAndRedirect();
+  </script> 
+</div>
+</body>
