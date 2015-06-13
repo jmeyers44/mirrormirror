@@ -53,6 +53,7 @@ end
 group :production do
   gem "rack-timeout"
   gem 'rails_12factor'
+  gem 'thin'
 end
 
 gem 'neo4j', '~> 4.1.0'
