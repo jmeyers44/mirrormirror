@@ -153,7 +153,6 @@ GEM
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rack-timeout (0.2.4)
     rails (4.2.1)
       actionmailer (= 4.2.1)
       actionpack (= 4.2.1)
@@ -252,7 +251,6 @@ DEPENDENCIES
   jquery-rails
   neo4j (~> 4.1.0)
   pry-rails
-  rack-timeout
   rails (= 4.2.1)
   rails_12factor
   sass-rails (~> 5.0)
