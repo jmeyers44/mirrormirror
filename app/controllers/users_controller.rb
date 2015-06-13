@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def uploads
     user_file = params["user"]["name"].tempfile.path
-    file = "#{Rails.root}/tmp/#{current_user}"
+    file = "#{Rails.root}/tmp/#{current_user.id}"
     open(file, 'wb') do |file|
       file.write open(user_file).read 
     end 
