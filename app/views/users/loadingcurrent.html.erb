@@ -17,6 +17,7 @@
   <div id="user_id" style="visibility:hidden;"><%= @current_user.id %></div>
   <script>
     function waitAndRedirect (){
+      debugger;
       var user_id = $('#user_id').text();
       window.location = "/users/"+user_id
     };

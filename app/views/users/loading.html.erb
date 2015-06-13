@@ -14,7 +14,7 @@
 
 
   <div id="temp_file" style="visibility:hidden;"><%=@file%></div>
-  <div id="user_id" style="visibility:hidden;"><%= current_user.id %></div>
+  <div id="user_id" style="visibility:hidden;"><%= @current_user.id %></div>
   <script>
     function parser (){
       var file_path = $('#temp_file').text();
