@@ -1,5 +1,11 @@
 $(document).ready(function(){
   
+  // String.prototype.trimToLength = function(m) {
+  // return (this.length > m) 
+  //   ? jQuery.trim(this).substring(0, m).split(" ").slice(0, -1).join(" ") + "..."
+  //   : this;
+  // };
+
   $(document).ready(function(){    
   $('.mm-logo-users').delay(100).css("visibility","visible").css({'opacity':0}).animate({'opacity':1}, 2000);
   });
@@ -99,6 +105,36 @@ $(document).ready(function(){
   }
 },40);
 
+  function makeUpdates(results){
+    var length = 40;
+    var userId = $('#user_id').html();
+    var songArray = results["song_array"]
+    for (var i = 0, len = songArray.length; i < len; i++) {
+    var songName = songArray[i]["song_name"].substring(0,length);
+    var albumName = songArray[i]["album_name"].substring(0,length);
+    var artistName = songArray[i]["artist_name"].substring(0,length);
+    var songId = songArray[i]["song_id"]
+    var lastRowId = String(parseInt($('table tr:last').attr('id')) + 1);
+    $('table tbody:last-child').append("<tr id = '" + lastRowId + "' class='song-row'><td><a href=/users/" + userId + "/play/" + songId + " data-remote='true' class='playbutton'><img class='play' height='30' src='/assets/icons/play-faf3d4e83e69e55282a5902d2bb7167d887a88cf1be15e16410f5629a63b47bb.png' alt='Play faf3d4e83e69e55282a5902d2bb7167d887a88cf1be15e16410f5629a63b47bb'></a></td><td><a href='#'>" + songName + "</a></td><td>" + artistName + "</td><td>" + albumName + "</td><td id='play_count'>0</td></tr>");
+    
+    }
+      
+    // })
+  }
 
-  
+    if($('body.songs_show').text() !== ""){setInterval(function(){
+    var songCount = $('.song-row').length
+    var user_id = $('#user_id').html();
+    $.ajax({
+      type: 'POST',
+      url: '/users/'+user_id+'/load_more_songs',
+      data: {user_id: user_id, song_count: songCount},
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(results){
+        makeUpdates(results);
+      },
+      dataType: 'JSON'
+    })
+  },500)
+  }
 })

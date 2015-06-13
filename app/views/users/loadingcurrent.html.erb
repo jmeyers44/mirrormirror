@@ -5,17 +5,15 @@
   </div>
   <h1 class="load-text">Your playlist is loading</h1>
   <div id="temp_file" style="visibility:hidden;"><%=@file%></div>
-  <div id="user_id" style="visibility:hidden;"><%= current_user.id %></div>
+  <div id="user_id" style="visibility:hidden;"><%= @current_user.id %></div>
   <script>
-    function parser (){
-      var file_path = $('#temp_file').text();
+    function waitAndRedirect (){
       var user_id = $('#user_id').text();
-      $.post("/users/parse",{file_path: file_path})
       setTimeout(function(){
           window.location = "/users/"+user_id
         },5000)
     };
-    parser();
+    waitAndRedirect();
   </script> 
 </div>
 </body>

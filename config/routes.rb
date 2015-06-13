@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
+  get 'users/:user_id/loading', :controller => 'users', :action => 'loadingcurrent'
   get 'users/:user_id/play/:id' => 'users#play'
   post 'users/:user_id/links/:id' => 'users#accuracy_rating'
+  post 'users/:user_id/load_more_songs' => 'users#load_more_songs'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
