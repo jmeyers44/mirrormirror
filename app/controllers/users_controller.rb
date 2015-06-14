@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if Rails.env == "development"
       file = "http://localhost:3000#{current_user.avatar.url}"
     else
-      file = "https://mirrormirrorapp.herokuapp.com/#{current_user.avatar.url}"
+      file = "https://mirrormirrorapp.herokuapp.com#{current_user.avatar.url}"
     end
     # mirrormirrorapp.herokuapp.com
     @file = file
@@ -61,7 +61,6 @@ class UsersController < ApplicationController
   def parse
     current_user_id = current_user.id
     file =  params[:file_path]
-    binding.pry
     Worker.perform_async(file, current_user_id)
     
     # redirect_to user_path(current_user.id)
