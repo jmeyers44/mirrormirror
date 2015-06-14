@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/subvertallchris/neo4jrb-paperclip.git
+  revision: e70f1f9ea9433a9d103420bdfbdb639197e719a0
+  specs:
+    neo4jrb-paperclip (0.0.3)
+      neo4j (> 3.0.0.alpha.8)
+      paperclip (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +51,10 @@ GEM
     autoprefixer-rails (5.2.0)
       execjs
       json
+    aws-s3 (0.6.3)
+      builder
+      mime-types
+      xml-simple
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
@@ -60,6 +72,10 @@ GEM
       columnize (= 0.9.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -144,6 +160,11 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     os (0.9.6)
+    paperclip (4.2.2)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -234,12 +255,14 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xml-simple (1.1.5)
     zip (2.0.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-s3
   better_errors
   bootstrap-sass (~> 3.3.4)
   byebug
@@ -250,6 +273,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   neo4j (~> 4.1.0)
+  neo4jrb-paperclip!
   pry-rails
   rails (= 4.2.1)
   rails_12factor

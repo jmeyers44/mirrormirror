@@ -2,12 +2,8 @@ class UsersController < ApplicationController
 # before_action :authenticate_user!
 
   def uploads
-    user_file = params["user"]["name"].tempfile.path
-    file = "#{Rails.root}/tmp/#{current_user.id}"
-    open(file, 'wb') do |file|
-      file.write open(user_file).read 
-    end 
-    @file = file
+    current_user.update(avatar: params["user"]["avatar"])
+    @file = "blank"
     # @songs = Song.all
     # @users = User.all
     render action: :loading
@@ -57,9 +53,8 @@ class UsersController < ApplicationController
   end
 
   def parse
-    params_file_path = params[:file_path]
     current_user_id = current_user.id
-    Worker.perform_async(params_file_path, current_user_id)
+    Worker.perform_async(current_user_id)
     
     # redirect_to user_path(current_user.id)
   end

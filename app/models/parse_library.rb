@@ -1,10 +1,11 @@
 class ParseLibrary 
   # include Neo4j::ActiveNode
-  include ActionController::Live
-  def add_library_to_db(file, current_user_id)
+  def add_library_to_db(current_user_id)
+    @current_user_id = current_user_id
+    new_user = User.find(@current_user_id)
+    new_user.avatar.copy_to_local_file(:original, "tmp/#{@current_user_id}.xml")
+    file = "tmp/#{@current_user_id}.xml"
     parse(file)
-    # current_user = {username: "flash"}
-    new_user = User.find(current_user_id)
     new_user.update(total_plays: 0)
     @library_array.each do |track_hash|
       next if track_hash["TV Show"] || track_hash["Podcast"]

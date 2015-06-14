@@ -20,7 +20,7 @@
         <h4>Upload your iTunes Library</h4>
         <p>You can find your library at: <br><span> /Users/username/Music/iTunes/iTunes Library.xml</span></p>
         <%= form_for@user, :url => users_upload_path, multipart: true, method: :post do |f| %>
-        <%= f.file_field :name, class: "file-upload" %><p>
+        <%= f.file_field :avatar, class: "file-upload" %><p>
         <%= image_submit_tag("upload.png") %>
         <% end %>
         <% else %>
@@ -72,7 +72,6 @@
           </div>
           <p>
           
-
     </center>
     </p>
   </div>

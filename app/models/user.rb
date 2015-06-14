@@ -1,5 +1,7 @@
 class User
   include Neo4j::ActiveNode
+  include Neo4jrb::Paperclip
+  
     #
     # Neo4j.rb needs to have property definitions before any validations. So, the property block needs to come before
     # loading your devise modules.
@@ -22,6 +24,7 @@ class User
      property :encrypted_password
 
      ## If you include devise modules, uncomment the properties below.
+  
 
      ## Rememberable
      property :remember_created_at, :type => DateTime
@@ -61,6 +64,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
       has_many :out, :songs, rel_class: 'HasSong'
+      has_neo4jrb_attached_file :avatar
+      validates_attachment_content_type :avatar, content_type: ["text/xml"]
 
         def self.find_or_create_by(hash)
     if User.find_by(hash)
