@@ -1,10 +1,8 @@
 class ParseLibrary 
   # include Neo4j::ActiveNode
-  def add_library_to_db(current_user_id)
+  def add_library_to_db(file, current_user_id)
     @current_user_id = current_user_id
     new_user = User.find(@current_user_id)
-    new_user.avatar.copy_to_local_file(:original, "tmp/#{@current_user_id}.xml")
-    file = "tmp/#{@current_user_id}.xml"
     parse(file)
     new_user.update(total_plays: 0)
     @library_array.each do |track_hash|
@@ -36,7 +34,7 @@ class ParseLibrary
   end
 
   def parse(file)
-    doc = Nokogiri::XML(File.open(file))
+    doc = Nokogiri::XML(open(file))
     @library_array = []
     doc.xpath('//dict/dict/dict').each do |track|
       obj = {}

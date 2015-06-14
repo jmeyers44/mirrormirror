@@ -3,7 +3,13 @@ class UsersController < ApplicationController
 
   def uploads
     current_user.update(avatar: params["user"]["avatar"])
-    @file = "blank"
+    if Rails.env == "development"
+      file = "http://localhost:3000#{current_user.avatar.url}"
+    else
+      file = "https://mirrormirrorapp.herokuapp.com/#{current_user.avatar.url}"
+    end
+    # mirrormirrorapp.herokuapp.com
+    @file = file
     # @songs = Song.all
     # @users = User.all
     render action: :loading
@@ -54,7 +60,9 @@ class UsersController < ApplicationController
 
   def parse
     current_user_id = current_user.id
-    Worker.perform_async(current_user_id)
+    file =  params[:file_path]
+    binding.pry
+    Worker.perform_async(file, current_user_id)
     
     # redirect_to user_path(current_user.id)
   end
