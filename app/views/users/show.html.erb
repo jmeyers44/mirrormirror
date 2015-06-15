@@ -1,7 +1,7 @@
 <body class="songs_show" style="background-color: #fff">
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <div class="container-fluid col-xs-12 page">
-<%= csrf_meta_tag %>
+
 
     <!-- ////////// NAV BAR ////////// -->
 
@@ -36,6 +36,7 @@
   <div id="user_id" style="visibility:hidden;"><%= current_user.id %></div>
 
   <div id="current_song" style="visibility:hidden;"></div>
+  <textarea id="loading" style="visibility:hidden;">true</textarea>
 
   <!-- ///////// PLAYER SECTION ////////// -->
   <div class="player-wrapper container-fluid" width="100%">

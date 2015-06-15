@@ -111,6 +111,7 @@ $(document).ready(function(){
   }
 },40);
 
+  
   function makeUpdates(results){
     var length = 40;
     var userId = $('#user_id').html();
@@ -128,19 +129,49 @@ $(document).ready(function(){
     // })
   }
 
-    if($('.bottomFill').length == 1){setInterval(function(){
+  var load_more = function(){
     var songCount = $('.song-row').length
     var user_id = $('#user_id').html();
     $.ajax({
       type: 'POST',
       url: '/users/'+user_id+'/load_more_songs',
-      data: {user_id: user_id, song_count: songCount},
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: {user_id: user_id, song_count: songCount},
       success: function(results){
-        makeUpdates(results);
+        if(results["song_array"][0]["loading"]=="true"){
+          makeUpdates(results);
+          load_more();          
+        }else{
+          $('#loading').text("false");
+        }
       },
       dataType: 'JSON'
     })
-  },500)
   }
+
+  
+    if($('.bottomFill').length == 1){
+      load_more();
+      //   var timerId = setInterval(function(){
+      //   var songCount = $('.song-row').length
+      //   var user_id = $('#user_id').html();
+      //   $.ajax({
+      //     type: 'POST',
+      //     url: '/users/'+user_id+'/load_more_songs',
+      //     data: {user_id: user_id, song_count: songCount},
+      //     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      //     success: function(results){
+      //       if(results["song_array"][0]["loading"]=="true"){
+      //         makeUpdates(results);          
+      //       }else{
+      //         $('#loading').text("false");
+      //       }
+      //     },
+      //     dataType: 'JSON'
+      //   })
+      //   if($('#loading').text() === "false"){
+      //     clearInterval(timerId);
+      //   }
+      // },1000);
+    }
 })

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @songs = current_user.songs.limit(100)
+    @songs = current_user.songs.limit(1)
     @user = current_user
     @song_array = @songs.collect do |song|
     # binding.pry
@@ -35,9 +35,9 @@ class UsersController < ApplicationController
   end
 
   def load_more_songs
-    current_user = params[:user_id]
+    # current_user = params[:user_id]
     song_count = params[:song_count].to_i
-    @songs = User.find(current_user).songs.offset(song_count).limit(5)
+    @songs = current_user.songs.offset(song_count).limit(1)
     if @songs != []
       @song_array = @songs.collect do |song|
         hash = {}
@@ -47,8 +47,12 @@ class UsersController < ApplicationController
         hash[:song_name] = song.name
         hash[:album_name] = query[0][0].name
         hash[:artist_name] = query[0][1].name
+        # hash[:play_count] = current_user.songs.first_rel_to(song[:song_id]).play_count
+        hash[:loading] = "true"
         hash
       end
+    else
+      @song_array = [{loading: "false"}]
     end
 
     respond_to do |format|
