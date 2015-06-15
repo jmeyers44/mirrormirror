@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @songs = current_user.songs.limit(1)
+    @songs = current_user.songs.limit(50)
     @user = current_user
     @song_array = @songs.collect do |song|
     # binding.pry
