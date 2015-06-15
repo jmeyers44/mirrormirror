@@ -128,7 +128,7 @@ $(document).ready(function(){
     // })
   }
 
-    if($('body.songs_show').text() !== ""){setInterval(function(){
+    if($('.bottomFill').length == 1){setInterval(function(){
     var songCount = $('.song-row').length
     var user_id = $('#user_id').html();
     $.ajax({
